@@ -6,11 +6,15 @@ About Me
 
 I am 24 years old and studying my first year in SIT! 
 
-![Me!](selfie.jpg){width=50%}
+![Me!](selfie.jpg){width=50%} 
 
 ```{r}
 1 + 1
 ```
+
+Here is a previous website portfolio I worked on back then throughout my time in army, without AI!
+
+[My Website Portfolio](https://ri3n.github.io/My-Website-Portfolio/)
 
 
 
