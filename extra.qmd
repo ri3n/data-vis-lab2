@@ -1,0 +1,8 @@
+---
+title: "extra"
+format: html
+---
+
+Here is an extra page with a moon
+
+![](moon.png)
