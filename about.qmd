@@ -4,6 +4,9 @@ title: "About"
 
 About this site
 
+This page contains a teddy bear
+![](teddybear.png){width=5%}
+
 ```{r}
-1 + 1
+2+2
 ```
