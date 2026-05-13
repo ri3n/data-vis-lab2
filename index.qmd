@@ -1,12 +1,13 @@
 ---
 title: "temp_website"
+format: html
 ---
 
 About Me
 
 I am 24 years old and studying my first year in SIT! 
 
-![Me!](selfie.jpg){width=50%} 
+![Me!](selfie.png){width=50%} 
 
 ```{r}
 1 + 1
