@@ -1,0 +1,1001 @@
+dba,boro,cuisine_group,has_critical,has_pest,n_violations,score,grade,pass
+PEACEFOOD,Manhattan,Other,No,Yes,1,26,B,Fail
+IRVING FARM NEW YORK,Manhattan,Other,No,No,1,34,C,Fail
+AEGEA WEST,Queens,Italian/Pizza,No,No,1,7,A,Pass
+BUND DUMPLING HOUSE,Queens,Asian,No,No,1,4,C,Fail
+PELICANA CHICKEN,Queens,Asian,Yes,No,1,41,C,Fail
+BESOS RESTAURANT BAR & LOUNGE,Staten Island,American,Yes,Yes,2,27,B,Fail
+KARAVAN GRILL,Brooklyn,Other,Yes,No,1,36,C,Fail
+CHIARA PIZZERIA,Brooklyn,Italian/Pizza,No,No,1,7,A,Pass
+DOMINO'S,Manhattan,Italian/Pizza,No,No,1,3,A,Pass
+CATFISH THE CAT,Manhattan,American,No,No,1,10,A,Pass
+EATZY CHINESE,Queens,South Asian,No,No,1,11,A,Pass
+BLANK STREET COFFEE,Manhattan,Other,No,Yes,1,11,A,Pass
+YANG'S GOOD TASTE,Bronx,Asian,Yes,Yes,1,24,B,Fail
+MAH ZE DAHR BAKERY,Manhattan,South Asian,Yes,No,1,7,A,Pass
+Gun Hill Post 271,Bronx,American,Yes,Yes,2,21,B,Fail
+ZEPPOLA ITALIAN BAKERY,Manhattan,Italian/Pizza,Yes,No,1,22,B,Fail
+DIWINE,Queens,American,Yes,Yes,1,7,A,Pass
+SUNNY JOHN PIZZA,Brooklyn,Italian/Pizza,Yes,No,1,12,A,Pass
+ZEF CAFE,Manhattan,American,Yes,Yes,1,12,A,Pass
+LOS 3 POTRILLOS,Queens,Latin,Yes,Yes,1,10,A,Pass
+MARACUS CLUB AND RESTAURANT,Queens,American,Yes,No,1,10,A,Pass
+HALALBEE'S,Queens,American,Yes,Yes,2,21,B,Fail
+HAIFA,Queens,Other,No,No,1,26,B,Fail
+DUNKIN,Staten Island,Other,Yes,No,1,12,A,Pass
+JUST SALAD,Manhattan,Other,No,Yes,1,13,A,Pass
+NYC TIKKA MASALA,Queens,South Asian,Yes,Yes,1,13,A,Pass
+NICOLA'S,Manhattan,Italian/Pizza,Yes,Yes,1,11,A,Pass
+ITALIAN TOUCH PIZZERIA,Staten Island,Other,Yes,No,1,21,B,Fail
+Aloha Highway Deli,Queens,American,Yes,Yes,1,10,A,Pass
+FIVE FLIES COFFEE,Manhattan,American,No,Yes,1,11,A,Pass
+CHEF QUANG GUYANESE CHINESE EXPRESS,Brooklyn,Other,Yes,Yes,1,13,A,Pass
+THE GRAND,Queens,American,Yes,Yes,1,13,A,Pass
+KN MI DELICIA BAKERY,Bronx,Other,No,No,1,13,A,Pass
+FEITENG CHINESE TAKE OUT KITCHEN,Brooklyn,Asian,No,Yes,1,13,A,Pass
+XIN GOLDEN HING CHINESE RESTAURANT,Brooklyn,Asian,No,No,1,17,B,Fail
+18 RESTAURANT,Manhattan,Other,No,No,1,12,A,Pass
+DELMONICO GOURMET,Manhattan,American,No,Yes,3,46,C,Fail
+HO WOK,Staten Island,Asian,Yes,Yes,1,9,A,Pass
+FRESCOS PIZZERIA,Manhattan,Italian/Pizza,Yes,No,1,11,A,Pass
+MACOSA,Brooklyn,Italian/Pizza,Yes,Yes,2,27,B,Fail
+TIGER SUGAR,Queens,Other,Yes,No,1,13,A,Pass
+SHAKE SHACK,Manhattan,American,Yes,Yes,1,13,A,Pass
+VINNY'S LUNCHBOX,Brooklyn,American,No,No,1,13,A,Pass
+AMICI RISTORANTE,Manhattan,Italian/Pizza,Yes,No,2,10,A,Pass
+CHINA RESTAURANT,Brooklyn,Asian,No,No,1,12,A,Pass
+TROPICAL JADE 3 ROTI EXPRESS,Queens,Latin,Yes,Yes,1,11,A,Pass
+M&M BAGELS AND CAFE,Queens,Other,Yes,Yes,4,47,C,Fail
+SWEET CHICK,Manhattan,American,Yes,No,1,12,A,Pass
+LUPITA MEXICAN RESTAURANT,Manhattan,Latin,Yes,Yes,1,14,B,Fail
+COMMODORE II,Manhattan,American,No,No,1,11,A,Pass
+DA VINCI PIZZA,Manhattan,Italian/Pizza,No,No,1,7,A,Pass
+TASTE GOOD,Brooklyn,Asian,Yes,No,1,33,C,Fail
+Pick-A-Bagel,Manhattan,Other,No,No,1,11,A,Pass
+RANCHO TULCINGO RESTAURANT,Bronx,Latin,Yes,Yes,1,9,A,Pass
+FRIEND RESTAURANT,Queens,Asian,Yes,No,1,7,A,Pass
+JADE BAKERY,Brooklyn,Asian,Yes,Yes,1,17,B,Fail
+COCO FRESH TEA & JUICE,Manhattan,Other,No,No,1,5,A,Pass
+POPEYES,Bronx,American,No,No,1,12,A,Pass
+HAWA SMOOTHIES & BUBBLE TEA,Manhattan,Other,No,Yes,1,13,A,Pass
+BEANIE CAFE,Staten Island,American,Yes,Yes,1,9,A,Pass
+CONOR'S GOAT,Manhattan,American,Yes,Yes,1,12,A,Pass
+SOBOL,Staten Island,Other,Yes,No,1,12,A,Pass
+SUBWAY,Brooklyn,American,No,Yes,2,18,B,Fail
+G'S EATERY & BAKERY,Queens,Latin,Yes,Yes,1,27,B,Fail
+MESIVTA EITZ CHAIM,Brooklyn,Other,Yes,No,1,7,A,Pass
+AUGURS WELL,Manhattan,American,Yes,Yes,1,12,A,Pass
+YAAD MAN THING,Brooklyn,Latin,Yes,Yes,1,19,B,Fail
+STITCH BAR,Manhattan,American,No,No,1,8,A,Pass
+COURTYARD BY MARRIOTT,Queens,American,Yes,Yes,1,12,A,Pass
+OLMSTED CAFETERIA- KIOSK,Queens,American,Yes,No,1,13,A,Pass
+TOST,Queens,American,Yes,Yes,1,61,C,Fail
+LE CAFE COFFEE,Manhattan,Other,No,Yes,1,9,A,Pass
+POPEYES,Staten Island,American,Yes,Yes,1,30,C,Fail
+J'S ON THE BAY,Staten Island,American,No,No,1,12,A,Pass
+STARBUCKS,Queens,Other,Yes,Yes,1,12,A,Pass
+FIELDTRIP,Manhattan,American,No,Yes,1,13,A,Pass
+KUMO JAPANESE CUISINE,Brooklyn,Asian,No,No,1,13,A,Pass
+CHIENG GARDEN KITCHEN,Staten Island,Asian,Yes,Yes,3,27,B,Fail
+CHAIRMAN SUN,Queens,Asian,Yes,Yes,2,61,C,Fail
+PAPA JOHN'S,Brooklyn,Italian/Pizza,Yes,Yes,1,9,A,Pass
+GRAND GREAT WALL,Queens,Asian,Yes,Yes,1,10,A,Pass
+CHEN'S GARDEN,Staten Island,Asian,No,No,1,13,A,Pass
+SMØR,Manhattan,Other,No,No,1,13,A,Pass
+DILBAR INDIAN CUISINE,Queens,South Asian,Yes,Yes,2,8,A,Pass
+CITI FIELD DOG FISH HEAD BAR,Queens,American,Yes,Yes,1,11,A,Pass
+PISTICCI RESTAURANT,Manhattan,Italian/Pizza,Yes,Yes,1,11,A,Pass
+CRAWFORDS CAFE,Brooklyn,Other,No,No,1,7,A,Pass
+BARB'S,Brooklyn,American,Yes,Yes,1,9,A,Pass
+BAOZI,Brooklyn,Asian,Yes,Yes,2,43,C,Fail
+China Xing Kitchen,Queens,Other,Yes,No,1,9,A,Pass
+ROAST,Manhattan,Other,No,Yes,1,19,B,Fail
+BED-VYNE BREW,Brooklyn,Other,No,No,1,10,A,Pass
+KUNGFU TEA,Staten Island,Other,No,No,1,12,A,Pass
+SUBWAY,Staten Island,American,No,No,1,9,A,Pass
+PAPA JOHN'S,Brooklyn,Italian/Pizza,No,Yes,1,12,A,Pass
+SHAN,Brooklyn,Asian,Yes,Yes,1,13,A,Pass
+LIN'S GARDEN,Brooklyn,Asian,No,No,2,24,B,Fail
+GEORGIAN CORNER,Brooklyn,European,No,No,1,9,A,Pass
+HAN DYNASTY,Manhattan,Asian,Yes,Yes,6,60,C,Fail
+DUNKIN,Brooklyn,Other,No,No,1,12,A,Pass
+DA VINCI PIZZA,Brooklyn,Italian/Pizza,No,No,1,12,A,Pass
+NISH NUSH,Manhattan,Other,Yes,No,2,11,A,Pass
+MARGHERITA PIZZA,Queens,Italian/Pizza,Yes,Yes,1,13,A,Pass
+UBS EMA CAFÉ,Manhattan,American,Yes,No,1,9,A,Pass
+NARUTO RAMEN,Manhattan,Asian,No,No,1,24,B,Fail
+CHINA KING,Bronx,Asian,Yes,Yes,3,39,C,Fail
+YEMENAT,Brooklyn,Other,Yes,Yes,4,31,C,Fail
+TACOS PIZZA FAMILIA GUZMAN,Queens,Italian/Pizza,Yes,No,1,27,B,Fail
+NO. 1 CHINA GARDEN KITCHEN,Bronx,Asian,Yes,Yes,2,41,C,Fail
+CHINESE FRIED CHICKEN,Bronx,Asian,Yes,Yes,1,10,A,Pass
+SILVER LIGHT TAVERN,Brooklyn,American,Yes,No,1,9,A,Pass
+OLMSTED CAFETERIA,Queens,American,Yes,No,1,34,C,Fail
+SPRING FOOD SPOT,Queens,American,Yes,Yes,2,16,B,Fail
+SUBWAY,Brooklyn,American,No,No,1,13,A,Pass
+LA TRAVIATA 2 PIZZERIA,Manhattan,Italian/Pizza,Yes,Yes,2,13,A,Pass
+STARBUCKS COFFEE # 85552,Manhattan,Other,No,No,1,11,A,Pass
+COPACABANA,Queens,Other,No,Yes,1,12,A,Pass
+BEL AMI,Manhattan,Other,Yes,Yes,3,32,C,Fail
+BAGELS & BREW,Queens,American,No,No,1,13,A,Pass
+UKUS,Queens,European,No,Yes,1,13,A,Pass
+ALLORA,Manhattan,Italian/Pizza,No,Yes,1,11,A,Pass
+P & S DELI GROCERY,Manhattan,American,Yes,No,1,13,A,Pass
+LENWICH,Manhattan,American,Yes,Yes,1,7,A,Pass
+POPEYES,Brooklyn,American,No,No,1,2,A,Pass
+CHA-AN TEAHOUSE,Manhattan,Asian,No,No,1,12,A,Pass
+BOLIVIAN LLAMA PARTY,Queens,American,Yes,Yes,2,19,B,Fail
+EL RANCHITO POBLANO RESTAURANT,Brooklyn,Latin,No,Yes,2,24,B,Fail
+GOLDEN KRUST CARIBBEAN BAKERY & GRILL,Bronx,Latin,Yes,Yes,2,23,B,Fail
+N25 NITRO TEA,Manhattan,Other,Yes,Yes,1,10,A,Pass
+BURGERS ON B,Manhattan,American,No,Yes,1,13,A,Pass
+WOLFGANG'S STEAK HOUSE,Manhattan,Other,No,No,1,12,A,Pass
+LA ISLA,Brooklyn,American,No,No,1,8,A,Pass
+J & J PIZZA,Brooklyn,Italian/Pizza,Yes,Yes,2,37,C,Fail
+LIL FRANKIE'S GROCERY,Manhattan,American,No,Yes,1,9,A,Pass
+GORY'S PLACE,Queens,American,No,Yes,1,12,A,Pass
+KING OF FALAFEL & SHAWARMA,Queens,European,Yes,No,1,13,A,Pass
+WHITE CASTLE,Bronx,American,Yes,Yes,1,12,A,Pass
+LAS CONCHITAS BAKERY,Brooklyn,Latin,Yes,Yes,1,13,A,Pass
+NOM,Manhattan,American,Yes,Yes,1,23,B,Fail
+MASALAWALA & SONS,Brooklyn,South Asian,Yes,Yes,2,23,B,Fail
+HUNGRY GHOST,Brooklyn,Other,Yes,No,1,8,A,Pass
+GO BAGELS,Manhattan,Other,Yes,Yes,1,12,A,Pass
+BAR CALICO,Manhattan,Other,No,No,1,4,A,Pass
+STEP ON TOP TAKE OUT RESTAURANT,Brooklyn,Latin,No,No,1,13,A,Pass
+HUB THAI,Manhattan,Asian,Yes,Yes,1,8,A,Pass
+COCOTAZO,Manhattan,Latin,Yes,Yes,1,9,A,Pass
+KUM FUNG KITCHEN,Staten Island,Asian,Yes,Yes,1,13,A,Pass
+SPA CASTLE (CAFE & JUICE BAR),Queens,American,No,No,1,11,A,Pass
+VEERAY DA DHABA,Manhattan,South Asian,Yes,No,1,12,A,Pass
+LES ENFANTS DE BOHEME,Manhattan,European,Yes,Yes,1,9,A,Pass
+MEXICAN DINER,Brooklyn,Latin,Yes,Yes,4,30,C,Fail
+NAYA,Manhattan,Other,No,Yes,1,10,A,Pass
+THE CAFE AT FOTOGRAFISKA,Manhattan,Other,Yes,No,1,9,A,Pass
+HAPPI CONE ICE CREAM AND CAFE,Bronx,Latin,Yes,Yes,3,46,C,Fail
+SOSAKU JAPANESE RESTAURANT,Brooklyn,Asian,No,No,1,25,B,Fail
+CURRY FLAVOR,Manhattan,South Asian,No,No,1,10,A,Pass
+DUNKIN DONUTS,Bronx,Other,No,Yes,2,22,B,Fail
+ANGAAR,Manhattan,South Asian,Yes,Yes,2,46,C,Fail
+FERRY HOUSE CAFE,Manhattan,Other,Yes,Yes,1,12,A,Pass
+THE AVENUE,Queens,American,Yes,Yes,2,20,B,Fail
+AL AQSA PARTY HALL,Bronx,Asian,No,Yes,2,12,A,Pass
+SKY COFFEE SHOP,Queens,Other,No,No,1,7,A,Pass
+CAFE BLESSING,Queens,Other,No,Yes,1,12,A,Pass
+AGED,Queens,Other,Yes,Yes,1,13,A,Pass
+CHAMPION PIZZA,Manhattan,Italian/Pizza,No,No,1,13,A,Pass
+DUNKIN' / 'BASKIN ROBBINS,Queens,Other,No,No,1,10,A,Pass
+T-SWIRL CREPE,Queens,Asian,Yes,Yes,1,22,B,Fail
+MOMOCHAI,Queens,Asian,Yes,No,1,9,A,Pass
+NUTRITIOUS CHINESE FOOD,Brooklyn,Asian,Yes,Yes,1,13,A,Pass
+VENCHI Chocolate & Gelato,Manhattan,Other,No,No,1,7,A,Pass
+FLORENCE  DINER,Queens,American,No,Yes,1,13,A,Pass
+HAPPY DELI,Queens,American,Yes,No,1,12,A,Pass
+CAVATAPPI,Brooklyn,Italian/Pizza,No,No,1,2,A,Pass
+BOITHAK KHANA KITCHEN & SWEETS,Brooklyn,South Asian,No,No,1,13,A,Pass
+SAKE BAR DECIBEL,Manhattan,Asian,No,No,1,2,A,Pass
+MAMAN,Manhattan,European,Yes,No,1,12,A,Pass
+CRAFT EMPANADAS BY S&R,Bronx,American,Yes,Yes,1,13,A,Pass
+THINK COFFEE,Manhattan,Other,No,No,1,7,A,Pass
+HEARTLAND BAGELS,Staten Island,Other,Yes,Yes,1,13,A,Pass
+O'NEILL'S RESTAURANT & BAR,Staten Island,Other,Yes,Yes,1,20,B,Fail
+EGGHOLIC,Queens,South Asian,Yes,No,1,11,A,Pass
+STARBUCKS COFFEE #53473,Manhattan,Other,No,No,1,11,A,Pass
+ICHIRAN TIMES SQUARE,Manhattan,Asian,Yes,Yes,1,12,A,Pass
+EFFY'S CAFE,Manhattan,Other,Yes,No,1,12,A,Pass
+Jamaica Breeze,Queens,Latin,Yes,No,1,13,A,Pass
+FRESCO TORTILLERIA,Queens,Other,Yes,Yes,1,12,A,Pass
+NEW GREAT WALL,Brooklyn,Asian,No,Yes,1,12,A,Pass
+787 COFFEE,Manhattan,Other,Yes,Yes,2,40,C,Fail
+CASA DEL SABOR,Brooklyn,Latin,Yes,Yes,1,12,A,Pass
+CARLYLE GREEN POOL STAND,Staten Island,American,Yes,No,1,12,A,Pass
+BAGELS AND CREAM,Bronx,Other,Yes,No,1,12,A,Pass
+DOWNSTEIN DINING HALL @ NYU,Manhattan,American,No,Yes,1,11,A,Pass
+CONNOLLY'S PUB,Manhattan,Italian/Pizza,No,Yes,1,11,A,Pass
+DAVIDOVICH BAKERY,Manhattan,Other,Yes,No,1,13,A,Pass
+BARESHA,Manhattan,Italian/Pizza,No,No,1,10,A,Pass
+55 THOMAS CAFE,Brooklyn,American,Yes,No,1,13,A,Pass
+PATRICIA'S,Bronx,Italian/Pizza,Yes,No,1,12,A,Pass
+ME-DO DESSERTS,Brooklyn,Other,No,Yes,1,13,A,Pass
+EL RINCONCITO DE LOS SABORES,Queens,Latin,No,Yes,2,21,B,Fail
+LEGEND CHICKEN,Queens,American,Yes,No,1,12,A,Pass
+POPEYES LOUISIANA KITCHEN,Queens,American,Yes,No,1,12,A,Pass
+LA CARIDAD 72,Manhattan,Asian,No,No,1,13,A,Pass
+PUNCH LINE JUICE BAR,Brooklyn,Other,Yes,No,1,10,A,Pass
+GINJAN CAFE,Brooklyn,Other,No,No,1,13,A,Pass
+MCDONALD'S,Brooklyn,American,Yes,No,1,10,A,Pass
+LONG HING KITCHEN,Queens,Asian,No,Yes,2,25,B,Fail
+DAVID'S BAKERY AND PIZZA,Brooklyn,Italian/Pizza,No,Yes,2,6,A,Pass
+EL MEXICANO RESTAURANTE AND CAFE,Brooklyn,Latin,Yes,No,1,21,B,Fail
+DIN SOUP DUMPLING,Brooklyn,Asian,No,No,1,7,A,Pass
+SYLLA'S RESTAURANT,Manhattan,Other,Yes,Yes,1,13,A,Pass
+JERSEY MIKE'S,Queens,American,No,No,1,7,A,Pass
+ARETSKY'S PATROON,Manhattan,American,No,No,1,11,A,Pass
+PARIS BAGUETTE,Manhattan,Other,No,No,1,26,B,Fail
+EMPANADAS MIX,Queens,Latin,No,Yes,1,12,A,Pass
+DUNKIN',Bronx,Other,Yes,No,1,6,A,Pass
+"DUNKIN', BASKIN ROBBINS",Brooklyn,Other,Yes,Yes,1,9,A,Pass
+ANTOJITOS DE SAN CECILIO,Queens,Latin,Yes,Yes,1,13,A,Pass
+CYCLO,Queens,Asian,Yes,Yes,2,24,B,Fail
+EL ENCANTO CENTRO-AMERICANO RESTAURANT,Queens,American,Yes,Yes,2,28,C,Fail
+LIGHTHOUSE FISHMARKET,Manhattan,Other,Yes,Yes,1,13,A,Pass
+NINJA JAPAN TERIYAKI,Queens,Asian,No,Yes,1,26,B,Fail
+RU YI CHINESE RESTAURANT,Brooklyn,Asian,Yes,Yes,2,39,C,Fail
+BEST PIZZA ON 1ST.,Manhattan,Italian/Pizza,No,No,1,12,A,Pass
+SHANDAR SWEET & RESTAURANT,Brooklyn,South Asian,Yes,Yes,4,22,B,Fail
+LA FLOR PIZZA,Brooklyn,Italian/Pizza,Yes,Yes,2,86,C,Fail
+BROOKLYN PERK COFFEE,Brooklyn,Other,Yes,No,1,12,A,Pass
+DUNKIN,Queens,Other,No,No,1,3,A,Pass
+CAFE D'AVIGNON,Brooklyn,Other,No,No,1,7,A,Pass
+CIPRIANI DOLCI,Manhattan,Italian/Pizza,Yes,Yes,3,35,C,Fail
+AMBER STEAKHOUSE,Brooklyn,Other,No,No,1,13,A,Pass
+COFFEE BAR / ATRIUM,Brooklyn,American,No,No,1,7,A,Pass
+THE PICNIC BASKET,Manhattan,American,No,Yes,1,12,A,Pass
+JANET'S PIZZA,Brooklyn,Italian/Pizza,No,Yes,1,13,A,Pass
+NEW KAM LAI,Manhattan,Asian,No,No,1,12,A,Pass
+ELECTRIC BURRITO,Manhattan,Latin,Yes,Yes,1,13,A,Pass
+CAVA,Brooklyn,European,No,No,1,7,A,Pass
+CARVEL,Bronx,Other,No,Yes,1,13,A,Pass
+URUBAMBA,Queens,Other,No,Yes,3,38,C,Fail
+DINASTIA EQUADORIAN FOOD,Queens,American,No,No,1,7,A,Pass
+SUMMER SALT,Manhattan,Latin,No,Yes,1,9,A,Pass
+NIEVES TIA MIMI ICES,Brooklyn,Latin,Yes,Yes,3,46,C,Fail
+GOODAS BAR & LOUNGE,Brooklyn,Latin,Yes,Yes,1,12,A,Pass
+MARSEILLE,Manhattan,European,Yes,No,1,28,C,Fail
+KENNEDY CHICKEN AND HALAL EXPRESS,Bronx,American,No,No,1,13,A,Pass
+JUST SALAD,Manhattan,Other,No,No,1,9,A,Pass
+DUNKIN,Manhattan,Other,No,No,1,13,A,Pass
+TIENDA GUATEMALTECA EL QUETZALITO,Brooklyn,American,Yes,Yes,5,53,C,Fail
+"SEAN'S BAR & KITCHEN, REILLEY'S PLATES & POURS",Manhattan,American,Yes,Yes,3,24,B,Fail
+OL'DAYS,Manhattan,Other,Yes,Yes,1,59,C,Fail
+T-SWIRL CREPE,Queens,Other,No,Yes,1,22,B,Fail
+JUST SALAD,Manhattan,Other,No,No,1,7,A,Pass
+BLANK SLATE,Manhattan,American,Yes,No,1,11,A,Pass
+THE ROCK RESTAURANT & DINER,Queens,Latin,Yes,No,1,11,A,Pass
+A. CHURRASQUEIRA RESTAURANT,Queens,Other,No,No,1,7,A,Pass
+ROPES & GRAY CAFE,Manhattan,American,No,No,1,10,A,Pass
+TEMAKASE HANDROLL BAR,Manhattan,Asian,Yes,No,1,12,A,Pass
+POPEYES,Queens,American,No,No,1,7,A,Pass
+WEST NEW MALAYSIA RESTAURANT,Manhattan,Asian,Yes,No,1,19,B,Fail
+CONNOLLY'S CORNER,Queens,Other,Yes,No,1,21,B,Fail
+SUBWAY,Brooklyn,American,Yes,No,1,12,A,Pass
+MARRIOTT MARQUIS PASTRY SHOP,Manhattan,Other,No,No,1,2,A,Pass
+BLACK PRESS COFFEE,Manhattan,Other,No,No,1,9,A,Pass
+AVOCADO,Staten Island,Asian,Yes,No,1,20,B,Fail
+NOISETTE,Queens,European,Yes,Yes,5,48,C,Fail
+BURGER URWAY,Brooklyn,American,Yes,Yes,2,22,B,Fail
+TACOS MORELOS,Queens,Latin,Yes,Yes,1,12,A,Pass
+JPAN SUSHI RESTAURANT,Brooklyn,Asian,No,No,1,11,A,Pass
+AMSTERDAM ALE HOUSE,Manhattan,American,No,Yes,1,14,B,Fail
+MCDONALD'S,Manhattan,American,No,No,1,7,A,Pass
+UPSIDE PIZZA,Manhattan,Italian/Pizza,Yes,No,1,12,A,Pass
+EAST CATERING & RESTAURANT,Queens,Asian,Yes,Yes,5,25,B,Fail
+ZAAB ZAAB,Manhattan,Asian,No,No,1,13,A,Pass
+CAFE GOURMAND,Staten Island,European,Yes,Yes,1,13,A,Pass
+RED FLAME DINER,Manhattan,American,Yes,Yes,1,13,A,Pass
+BROOKLYN FARMACY & SODA FOUNTAIN,Brooklyn,Other,Yes,Yes,1,12,A,Pass
+FELLINI,Manhattan,Other,Yes,Yes,2,42,C,Fail
+SANFORDS,Queens,American,No,No,1,10,A,Pass
+AND BOTANI,Brooklyn,Other,No,No,1,13,A,Pass
+MANOUSHEH,Manhattan,Other,Yes,Yes,1,11,A,Pass
+BYUNG CHUN SOON DAE,Queens,Asian,Yes,Yes,4,78,C,Fail
+CESTRAS PIZZA III,Bronx,Italian/Pizza,Yes,No,1,9,A,Pass
+HALAL BUFFET,Queens,Other,Yes,Yes,1,13,A,Pass
+WENDY'S,Manhattan,American,Yes,Yes,1,13,A,Pass
+SIENA,Brooklyn,Other,No,No,1,4,A,Pass
+JE T'AIME PATISSERIE,Brooklyn,Other,No,Yes,1,12,A,Pass
+HEY YUET,Manhattan,Asian,Yes,Yes,1,10,A,Pass
+TANDORICO,Queens,South Asian,Yes,Yes,3,49,C,Fail
+BATHTUB GIN,Manhattan,American,No,Yes,1,13,A,Pass
+EL MALECON RESTAURANT,Brooklyn,Latin,No,Yes,1,13,A,Pass
+PRET A MANGER,Manhattan,American,No,No,1,5,A,Pass
+LA LUPE,Brooklyn,Latin,Yes,Yes,1,7,A,Pass
+TOMPKINS SQUARE BAGELS,Manhattan,Other,Yes,Yes,1,8,A,Pass
+THE STINGER,Manhattan,American,Yes,Yes,3,22,B,Fail
+G &L CAJUN GRILL,Queens,Asian,Yes,Yes,3,23,B,Fail
+THE RESTAURANT AT GILDER,Manhattan,American,Yes,Yes,1,10,A,Pass
+E SUSHI II,Brooklyn,Asian,Yes,No,1,12,A,Pass
+KENNEDY FRIED CHICKEN,Queens,American,No,Yes,1,10,A,Pass
+RANDY'S,Queens,Asian,Yes,No,1,7,A,Pass
+OASIS JIMMA JUICE BAR,Manhattan,Other,Yes,Yes,2,19,B,Fail
+MOLE,Manhattan,Latin,Yes,Yes,1,13,A,Pass
+PARIS CAFE,Manhattan,European,Yes,No,1,13,A,Pass
+THE LUXURY COLLECTION HOTEL (EMPLOYEE DININGN ROOM AND PASTRY),Manhattan,American,Yes,Yes,1,12,A,Pass
+VIA BRASIL,Manhattan,Other,No,No,1,12,A,Pass
+RED CHILLI,Queens,South Asian,Yes,Yes,2,27,B,Fail
+THE ROXY HOTEL / THE DJANGO / PAUL'S COCKTAIL LOUNGE,Manhattan,American,Yes,Yes,1,13,A,Pass
+WETZLE'S PRETZELS,Staten Island,Other,Yes,No,1,13,A,Pass
+GO CUPS,Manhattan,Other,No,No,1,8,A,Pass
+CHERRY VALLEY DELI & GRILL,Queens,American,Yes,Yes,2,32,C,Fail
+ROAST&CO,Queens,Other,No,No,1,13,A,Pass
+IPIZZANY,Manhattan,Italian/Pizza,Yes,Yes,1,27,B,Fail
+MIGHTY QUINN'S BARBEQUE,Manhattan,Other,Yes,Yes,1,11,A,Pass
+STARBUCKS COFFEE,Manhattan,Other,No,No,1,4,A,Pass
+DELMONICO GOURMET,Manhattan,American,Yes,Yes,2,27,B,Fail
+RANCH RESTAURANT,Bronx,Latin,Yes,No,1,26,B,Fail
+STARBUCKS,Bronx,Other,Yes,Yes,1,13,A,Pass
+THE COSMOPOLITAN CLUB,Manhattan,American,Yes,Yes,1,12,A,Pass
+THE DART SPORTS BAR,Queens,American,Yes,Yes,1,19,B,Fail
+CHINESE TUXEDO / PEACHY'S,Manhattan,Asian,Yes,No,2,12,A,Pass
+LOUIE & ERNIE'S,Bronx,Italian/Pizza,Yes,No,1,9,A,Pass
+ALLIGATOR LOUNGE,Brooklyn,Italian/Pizza,Yes,Yes,1,13,A,Pass
+CHINA RED EXPRESS,Manhattan,Asian,No,No,1,10,A,Pass
+AYADA THAI RESTAURANT,Queens,Asian,Yes,Yes,1,12,A,Pass
+THE BROTHERS BAGELS,Brooklyn,Other,Yes,Yes,1,10,A,Pass
+SUBWAY,Manhattan,American,No,No,1,11,A,Pass
+NEW SARKURA JAPAN,Queens,Asian,Yes,Yes,2,12,A,Pass
+ELMHURST FAMOUS PIZZA,Queens,Italian/Pizza,Yes,Yes,1,9,A,Pass
+MORELOS DELI & FRUIT,Staten Island,Latin,No,No,1,12,A,Pass
+NEW GRACE CHINESE RESTAURANT,Brooklyn,Asian,Yes,No,1,12,A,Pass
+STARBUCKS COFFEE COMPANY,Staten Island,Other,Yes,Yes,1,13,A,Pass
+SWEETBEE COFFEE,Brooklyn,Other,Yes,Yes,1,12,A,Pass
+EMMONS PALACE,Brooklyn,Other,Yes,Yes,2,27,B,Fail
+HAVANA SOCIAL,Manhattan,American,No,Yes,1,41,C,Fail
+WANGJIA XIAOCHU,Brooklyn,Asian,Yes,Yes,2,27,B,Fail
+CAFFE CORRETTO,Brooklyn,Other,Yes,Yes,1,13,A,Pass
+EMERGENCY KITCHEN & BAR,Bronx,American,No,No,1,18,B,Fail
+JAM.DOWN CARIBBEAN RESTAURANT,Brooklyn,Latin,Yes,No,1,18,B,Fail
+BIRCH COFFEE,Manhattan,Other,No,No,1,12,A,Pass
+NUR THAI,Queens,Asian,Yes,Yes,3,21,B,Fail
+YUMPLING,Queens,Asian,No,No,1,13,A,Pass
+THE STINGER,Manhattan,American,No,Yes,1,12,A,Pass
+CAOBA,Brooklyn,American,No,No,1,8,A,Pass
+CINNABON,Bronx,Other,Yes,No,1,5,A,Pass
+KOSSAR'S - MISS WONTON DUMPLING,Manhattan,Other,No,No,1,8,A,Pass
+ASTORIA COFFEE SHOP,Queens,Other,No,No,1,11,A,Pass
+DUNKIN,Staten Island,Other,Yes,Yes,1,13,A,Pass
+SERAFINA,Manhattan,Italian/Pizza,Yes,No,2,14,B,Fail
+MEET WISE MEAT,Brooklyn,European,No,Yes,1,12,A,Pass
+DUNKIN,Bronx,Other,No,No,1,0,A,Pass
+CHIPOTLE MEXICAN GRILL,Manhattan,Other,No,No,1,10,A,Pass
+CARBONE,Manhattan,Italian/Pizza,No,Yes,1,22,B,Fail
+KAM HING CAFE,Manhattan,Other,No,No,1,13,A,Pass
+EL POLLO INKA PERU,Queens,Other,No,No,1,23,B,Fail
+CHECKERS,Queens,American,No,No,2,13,A,Pass
+CHINGALE/ROAM,Manhattan,American,Yes,Yes,1,12,A,Pass
+1480 HK CAFE,Queens,Asian,Yes,Yes,1,9,A,Pass
+FATTY DADDY TACO,Brooklyn,Latin,No,No,1,11,A,Pass
+OMAR'S MEDITERRANEAN CUISINE,Manhattan,European,No,No,1,3,A,Pass
+HUNAN NOODLE,Queens,Asian,Yes,Yes,1,10,A,Pass
+LENA'S ITALIAN KITCHEN,Manhattan,Italian/Pizza,Yes,Yes,2,23,B,Fail
+TWIN GRILLS,Brooklyn,Latin,Yes,No,1,10,A,Pass
+GONG CHA,Brooklyn,Other,No,Yes,1,4,A,Pass
+DUNKIN' DONUTS,Manhattan,Other,No,No,1,11,A,Pass
+MI PEQUENO RANCHITO RESTAURANT,Brooklyn,Latin,No,No,1,11,A,Pass
+SWEET TREATS PASTRY SHOPPE,Queens,Other,No,No,1,2,A,Pass
+BLVD BISTRO,Manhattan,Other,Yes,No,2,25,B,Fail
+JONES STREET WINE BAR,Manhattan,American,No,No,1,7,A,Pass
+PRIMAVERA PIZZERIA,Bronx,Italian/Pizza,Yes,No,1,13,A,Pass
+TECOLOTE,Queens,Latin,Yes,Yes,1,23,B,Fail
+CHIP CITY,Brooklyn,Other,No,No,1,9,A,Pass
+KFC,Brooklyn,American,No,No,1,11,A,Pass
+SWEETGREEN,Manhattan,Other,Yes,Yes,1,10,A,Pass
+LES VAGABONDS,Manhattan,European,No,No,1,11,A,Pass
+CHERYL'S GLOBAL SOUL,Brooklyn,American,No,No,1,12,A,Pass
+FOUNDRY KITCHEN & BAR,Manhattan,American,Yes,Yes,3,49,C,Fail
+CRUMBL COOKIES,Staten Island,Other,No,Yes,1,21,B,Fail
+HANA ASIAN BISTRO,Queens,Asian,No,Yes,1,27,B,Fail
+BK PIZZA,Brooklyn,Italian/Pizza,No,No,2,13,A,Pass
+MOMO ASHI,Queens,Other,Yes,Yes,1,11,A,Pass
+WILLIAMSBURG CINEMAS,Brooklyn,American,No,Yes,1,13,A,Pass
+NUTRICION FAMILIAR,Queens,Other,Yes,Yes,4,39,C,Fail
+POLANCO,Manhattan,Other,Yes,Yes,2,21,B,Fail
+CUENCA COFFEE SHOP RESTAURANT,Queens,American,Yes,Yes,3,25,B,Fail
+FAT RABBIT,Brooklyn,American,Yes,Yes,1,12,A,Pass
+787 COFFEE,Manhattan,Other,No,No,1,13,A,Pass
+BEANS AND VINES EXPRESS,Manhattan,American,Yes,Yes,1,9,A,Pass
+BRASSERIE FOUQUET'S / ELYSEE'S / TITSOU BAR / LE VAUX ROOFTOP,Manhattan,European,No,No,1,13,A,Pass
+MADAME BONTE,Manhattan,European,Yes,Yes,1,7,A,Pass
+STARBUCKS,Staten Island,Other,Yes,No,1,10,A,Pass
+YIN JI CHANG FEN,Manhattan,Asian,No,No,1,33,C,Fail
+JERRY'S PIZZA,Bronx,Italian/Pizza,Yes,Yes,2,21,B,Fail
+MYRTLE THAI RESTAURANT,Brooklyn,Asian,Yes,Yes,1,24,B,Fail
+MCGUINNESS'S SALOON,Queens,Other,Yes,No,1,11,A,Pass
+SUBWAY,Queens,American,No,No,1,12,A,Pass
+CHANG YU,Brooklyn,Asian,No,No,1,9,A,Pass
+TODOSANTOS CAFE & GRILL,Brooklyn,American,No,No,1,10,A,Pass
+TALEA BEER,Manhattan,Other,No,No,1,7,A,Pass
+J & J RESTAURANT & CUCHIFRITOS,Bronx,American,No,No,1,12,A,Pass
+FRIED CHICKEN WITH THE SAUCE,Brooklyn,Latin,Yes,No,2,19,B,Fail
+THE LOBSTER CLUB,Manhattan,Asian,Yes,No,1,12,A,Pass
+JK & SONS COFFEE SHOP,Manhattan,American,Yes,Yes,3,27,B,Fail
+CAFE BLISS & ORGANIC JUICE BAR,Queens,Other,Yes,Yes,1,12,A,Pass
+MEDITERRANEO PIZZA,Manhattan,Italian/Pizza,No,Yes,1,7,A,Pass
+SARABETH'S,Manhattan,American,No,No,1,7,A,Pass
+COURT STREET GROCERS,Manhattan,American,Yes,Yes,2,33,C,Fail
+MADAME VO'S,Manhattan,Asian,Yes,Yes,2,16,B,Fail
+STARBUCKS #7277,Manhattan,Other,Yes,Yes,1,11,A,Pass
+EL MOLINO,Queens,Other,Yes,Yes,1,13,A,Pass
+D' ABRUZZO,Manhattan,Other,Yes,Yes,1,10,A,Pass
+RIVERCREST,Queens,American,Yes,No,1,12,A,Pass
+MCDONALD'S #3081,Manhattan,American,Yes,Yes,1,12,A,Pass
+LITTLE BEAVER,Brooklyn,American,Yes,Yes,1,10,A,Pass
+MORITZ,Brooklyn,Other,Yes,Yes,1,10,A,Pass
+SENZA GLUTEN,Manhattan,Other,Yes,Yes,1,12,A,Pass
+EMMY SQUARED PIZZA,Brooklyn,Italian/Pizza,Yes,Yes,3,53,C,Fail
+MASALA KING,Manhattan,South Asian,No,No,1,5,C,Fail
+GEE'S CARIBBEAN RESTAURANT,Brooklyn,Latin,Yes,Yes,1,12,A,Pass
+TURTLES ALL THE WAY DOWN,Brooklyn,American,Yes,Yes,1,9,A,Pass
+CHEZ MACOULE RESTAURANT,Brooklyn,Other,Yes,Yes,1,13,A,Pass
+HARBOR FITNESS,Brooklyn,Other,No,Yes,1,21,B,Fail
+LITTLE PIZZA PARLOR,Brooklyn,Italian/Pizza,Yes,No,1,8,A,Pass
+LA BAKER,Queens,Other,Yes,Yes,1,23,B,Fail
+BUDDHA BODAI,Manhattan,Other,No,Yes,1,10,A,Pass
+MISSION CEVICHE,Manhattan,Other,Yes,No,1,13,A,Pass
+MINITALIA PIZZERIA,Queens,Italian/Pizza,Yes,No,1,13,A,Pass
+MATCH 65,Manhattan,European,Yes,Yes,2,10,A,Pass
+HONG KONG CHINESE RESTAURANT,Manhattan,Asian,No,No,1,4,A,Pass
+AMERICANO CAFE,Staten Island,Other,No,No,1,10,A,Pass
+THE ROGER'S GARDEN,Brooklyn,Latin,Yes,Yes,1,12,A,Pass
+TIPICO DOMINICANO,Queens,American,No,No,1,13,A,Pass
+WE JUICING,Queens,Other,Yes,Yes,1,10,A,Pass
+LECHONERA & POLLO SABROSO RESTAURANT,Bronx,Latin,Yes,Yes,1,20,B,Fail
+BRASSERIE FOUQUET'S / ELYSEE'S / TITSOU BAR / LE VAUX ROOFTOP,Manhattan,European,No,No,1,12,A,Pass
+JOE & THE JUICE,Manhattan,Other,Yes,No,1,10,A,Pass
+MCDONALD'S,Manhattan,American,No,No,1,3,A,Pass
+DELICIAS MEXICANAS,Manhattan,Latin,No,No,1,12,A,Pass
+SHAKE SHACK #1525,Manhattan,American,No,No,1,5,A,Pass
+D.E. SHAW,Manhattan,American,Yes,Yes,2,27,B,Fail
+HELLO VIETPHO,Manhattan,Asian,Yes,No,1,13,A,Pass
+J & M BAKERY,Queens,Other,Yes,Yes,1,13,A,Pass
+ESSE TACO,Brooklyn,Latin,Yes,No,1,5,A,Pass
+LA KUCHARA,Queens,American,Yes,Yes,1,25,B,Fail
+LITTLE KIRIN,Manhattan,Asian,No,No,1,9,A,Pass
+NUHMA,Queens,American,No,No,1,12,A,Pass
+EMPHASIS,Brooklyn,American,Yes,No,1,25,B,Fail
+POPEYES,Queens,American,No,Yes,1,9,A,Pass
+KATHY'S DUMPLINGS,Brooklyn,Asian,No,Yes,1,22,B,Fail
+EL NUEVO BARZOLA,Brooklyn,American,No,No,1,4,A,Pass
+HOUSE OF JOY,Manhattan,Asian,No,No,1,11,A,Pass
+HOT SPOT GRILL & JERK,Bronx,Latin,No,No,1,13,A,Pass
+OLD FASHION CONEY ISLAND FOOD,Brooklyn,American,No,No,1,12,A,Pass
+THAI MAX,Bronx,Asian,Yes,No,3,35,C,Fail
+STARBUCKS CORPORATION,Staten Island,Other,No,No,1,5,A,Pass
+STANDARD CAFE / RCANO EVENTS,Queens,American,No,No,1,11,A,Pass
+EMPIRE STEAK HOUSE,Manhattan,American,Yes,Yes,3,27,B,Fail
+12 CORAZONES,Queens,American,Yes,Yes,1,9,A,Pass
+GREAT WALL,Queens,Asian,Yes,Yes,1,11,A,Pass
+ANANDA,Manhattan,South Asian,Yes,Yes,2,19,B,Fail
+GRASS ROOTS JUICERY,Brooklyn,Other,Yes,Yes,4,45,C,Fail
+SIMO PIZZA,Manhattan,Italian/Pizza,No,No,1,2,A,Pass
+PEGASUS BROOKLYN,Brooklyn,American,Yes,Yes,2,10,A,Pass
+LA VIENESA,Queens,American,Yes,No,3,28,C,Fail
+LUKE'S LOBSTER,Manhattan,Other,No,No,1,4,A,Pass
+101 APizza,Queens,Italian/Pizza,Yes,No,1,11,A,Pass
+SUMMER,Queens,Asian,No,No,1,14,B,Fail
+ANKARA ONE,Brooklyn,European,Yes,Yes,3,62,C,Fail
+JUNCTION CAKE BOX,Queens,Other,Yes,Yes,1,11,A,Pass
+TACO BELL,Bronx,Latin,Yes,No,1,12,A,Pass
+GENAO,Brooklyn,American,Yes,Yes,1,23,B,Fail
+LOPEZ FAMILY MARKET,Brooklyn,Latin,No,No,1,2,A,Pass
+BOTTINO,Manhattan,Italian/Pizza,No,No,1,11,A,Pass
+KIWI LIME,Queens,American,No,Yes,1,10,A,Pass
+FREEMANS,Manhattan,American,No,Yes,2,21,B,Fail
+JI BEI CHUAN,Manhattan,Asian,No,No,1,27,B,Fail
+KAM HUNG KITCHEN,Queens,Asian,No,No,1,10,A,Pass
+CITI FIELD NATHAN'S FAMOUS STAND 406,Queens,Other,No,Yes,1,11,A,Pass
+YUMMY TACO,Brooklyn,Other,No,No,1,2,A,Pass
+MISAKI SUSHI,Staten Island,Asian,No,No,1,11,A,Pass
+HAEJANG,Queens,Asian,Yes,No,1,12,A,Pass
+SWEETGREEN,Manhattan,Other,No,No,1,6,A,Pass
+CLASSIC KOSHER CATERING,Brooklyn,Other,No,No,1,10,A,Pass
+5IVE SPICE,Manhattan,Asian,No,No,1,12,A,Pass
+SAMS FAMOUS PIZZA,Manhattan,Italian/Pizza,No,No,1,12,A,Pass
+TABU,Brooklyn,American,Yes,Yes,2,22,B,Fail
+LAS PALMAS RESTAURANT,Manhattan,Latin,No,No,1,10,A,Pass
+SUGAR BOY BAKERY II,Bronx,Other,Yes,No,1,22,B,Fail
+PRIME TIME,Brooklyn,Other,No,Yes,2,12,A,Pass
+FERJE'S NB,Queens,Latin,No,Yes,2,25,B,Fail
+FAMOUS FAMIGLIA PIZZERIA,Manhattan,Italian/Pizza,No,No,1,12,A,Pass
+FOOTPRINTS CAFE,Brooklyn,Latin,Yes,Yes,1,12,A,Pass
+THE GREAT GEORGIANA,Brooklyn,American,Yes,No,1,7,A,Pass
+GUACTIME,Brooklyn,Latin,Yes,Yes,5,50,C,Fail
+TONG'S CAFE,Queens,Other,Yes,No,1,24,B,Fail
+HAFIYA,Brooklyn,Other,No,No,1,10,A,Pass
+DUNKIN',Manhattan,Other,No,No,1,9,A,Pass
+MAXIN BAKERY,Queens,Other,Yes,No,1,8,A,Pass
+BLACK THAI,Queens,Asian,Yes,Yes,1,13,A,Pass
+MOLASSES BOOKS,Brooklyn,Other,No,No,1,4,A,Pass
+STARBUCKS,Queens,Other,Yes,Yes,1,10,A,Pass
+PIZZA CHEF,Bronx,Italian/Pizza,No,No,1,17,B,Fail
+DE ISLANDS,Queens,Latin,Yes,No,1,7,A,Pass
+SALOME LATIN CUISINE,Bronx,American,Yes,Yes,1,7,A,Pass
+CHIPOTLE MEXICAN GRILL,Manhattan,Other,Yes,Yes,1,13,A,Pass
+FAN FRIED RICE BAR,Brooklyn,Asian,No,No,1,13,A,Pass
+THE PASTRY BOX,Manhattan,Other,Yes,Yes,1,12,A,Pass
+COLIMA TAQUERIA,Bronx,Latin,Yes,Yes,3,19,B,Fail
+YI MIN RESTAURANT,Brooklyn,Asian,Yes,Yes,1,9,A,Pass
+BUTLER,Brooklyn,Other,Yes,Yes,2,53,C,Fail
+STANLEY COFFEE SHOP,Brooklyn,Latin,No,No,1,13,A,Pass
+LIN'S GARDEN,Bronx,Asian,Yes,No,2,14,B,Fail
+"DUNKIN', 'BASKIN ROBBINS",Brooklyn,Other,No,Yes,1,9,A,Pass
+MONTE CARLO DINER,Manhattan,American,Yes,Yes,1,11,A,Pass
+ORIGIN CAFE & WINE BAR,Queens,Other,Yes,No,2,13,A,Pass
+PLANTED,Brooklyn,Other,Yes,Yes,1,13,A,Pass
+LLIANA'S BAR LOUNGE,Queens,Other,Yes,No,1,13,A,Pass
+LITTLE ROY COFFEE CO.,Brooklyn,Other,Yes,Yes,2,34,C,Fail
+LE CAFE COFFEE,Manhattan,Other,Yes,No,1,7,A,Pass
+PALERMO PIZZERIA AND RESTAURANT,Staten Island,Italian/Pizza,No,No,1,13,A,Pass
+SAN JERONIMO RESTAURANT & BAKERY,Staten Island,Latin,Yes,Yes,1,7,A,Pass
+IPPUDO,Manhattan,Asian,Yes,Yes,1,13,A,Pass
+ZHUMI BAKERY & RESTAURANT,Queens,Latin,Yes,Yes,1,13,A,Pass
+BANTER,Brooklyn,American,No,No,1,10,A,Pass
+DUNKIN,Brooklyn,Other,Yes,Yes,2,11,A,Pass
+TRES SABORES TAQUERIA,Queens,Latin,No,No,1,18,B,Fail
+SUBWAY,Brooklyn,American,No,No,1,11,A,Pass
+CAFFE CAFE,Brooklyn,Other,Yes,Yes,1,32,C,Fail
+BAGEL ON THE BLVD,Staten Island,Other,Yes,No,1,7,A,Pass
+WO HOP NEXT DOOR,Manhattan,Asian,Yes,No,1,12,A,Pass
+BRASIER,Manhattan,Latin,Yes,No,2,12,A,Pass
+FAMOUS 1 DOLLAR PIZZA,Manhattan,Italian/Pizza,No,No,1,11,A,Pass
+WINGSTOP,Queens,American,No,No,1,45,C,Fail
+D GIOVANIS BIG PIZZA,Bronx,Italian/Pizza,No,No,2,11,A,Pass
+CABRINI 181,Manhattan,American,Yes,No,1,10,A,Pass
+OAKBERRY,Manhattan,Other,Yes,Yes,1,12,A,Pass
+THE WINSLOW,Manhattan,Other,No,No,1,9,A,Pass
+GRUENEBAUM'S BAKERY & CAFE,Bronx,Other,Yes,Yes,2,9,A,Pass
+6TH AVE CAFE INC,Brooklyn,Asian,Yes,Yes,1,23,B,Fail
+272 UPTOWN PIZZA,Manhattan,Italian/Pizza,Yes,Yes,2,34,C,Fail
+MOSAIC,Queens,Other,Yes,Yes,1,9,A,Pass
+THE PALMS WEST INDIAN & AMERICAN CUISINE,Bronx,Latin,Yes,Yes,2,50,C,Fail
+FLAMING SADDLES SALOON,Manhattan,American,Yes,No,1,5,A,Pass
+BB.Q CHICKEN,Brooklyn,American,Yes,Yes,1,13,A,Pass
+RINCON LATINO RESTAURANT,Bronx,American,Yes,Yes,2,28,C,Fail
+YOKOX OMAKASE,Manhattan,Asian,No,No,1,10,A,Pass
+NUHMA,Queens,American,Yes,Yes,3,19,B,Fail
+SARAJEVO GRILL,Queens,European,Yes,Yes,1,11,A,Pass
+BALZEM,Manhattan,European,No,No,1,13,A,Pass
+PANDA GARDEN,Staten Island,Asian,Yes,Yes,1,9,A,Pass
+TACOS GLORIA,Queens,Other,No,No,1,11,A,Pass
+RANCH RESTAURANT,Bronx,Latin,Yes,No,3,26,B,Fail
+CANCUN BAR & RESTAURANT MEXICAN GRILL,Brooklyn,Latin,No,No,1,13,A,Pass
+KUNG FU TEA,Queens,Other,Yes,Yes,2,24,B,Fail
+SUBWAY,Brooklyn,American,No,No,1,4,A,Pass
+MONTAGUE STREET BAGELS,Brooklyn,Other,Yes,No,1,22,B,Fail
+VERY JUICE,Brooklyn,Other,No,No,1,12,A,Pass
+IHOP,Brooklyn,Other,Yes,No,1,11,A,Pass
+DUKE EATERY,Manhattan,American,Yes,Yes,1,12,A,Pass
+CHICKEN INSIDER,Manhattan,American,No,No,1,5,A,Pass
+PRINCE GRILL & JUICE BAR,Queens,American,Yes,Yes,1,45,C,Fail
+AMAMI SUSHI,Brooklyn,Asian,Yes,No,1,5,A,Pass
+CONCESSION 105,Bronx,American,No,No,1,7,A,Pass
+APRICOT CAFE,Brooklyn,Other,Yes,Yes,2,25,B,Fail
+SUBWAY,Staten Island,American,Yes,Yes,2,23,B,Fail
+ROCCO'S ITALIAN SAUSAGES & CHEESE STEAKS,Queens,American,Yes,Yes,1,12,A,Pass
+WEST NEW MALAYSIA RESTAURANT,Manhattan,Asian,No,Yes,1,12,A,Pass
+PAPA JOHN'S,Brooklyn,Italian/Pizza,No,No,1,4,A,Pass
+VERY FRESH NOODLES,Manhattan,Asian,Yes,Yes,1,8,A,Pass
+GINO'S PIZZERIA,Queens,Italian/Pizza,Yes,Yes,3,39,C,Fail
+WING STOP,Brooklyn,American,Yes,Yes,1,17,B,Fail
+ADE BAMBOO CHINESE CUISINE,Queens,Other,No,No,1,13,A,Pass
+PICANTE PICANTE RESTAURANT,Bronx,Latin,Yes,Yes,1,22,B,Fail
+MARIO'S RESTAURANT,Bronx,Italian/Pizza,No,No,1,4,A,Pass
+PIZZERIA LAS MARGARITA’S,Bronx,Italian/Pizza,No,No,1,13,A,Pass
+THE GROUNDS OF BROOKLYN,Brooklyn,Italian/Pizza,No,No,2,9,A,Pass
+CROWN PALACE,Staten Island,Asian,Yes,No,1,12,A,Pass
+KUNST COFFEE HAUS,Queens,Other,Yes,No,1,10,A,Pass
+BURGER JOINT,Manhattan,American,No,No,1,8,A,Pass
+ZHU JI DUMPLING HOUSE,Queens,Asian,Yes,Yes,1,23,B,Fail
+DUNKIN,Brooklyn,Other,Yes,No,1,13,A,Pass
+SEVILLA,Manhattan,Latin,Yes,Yes,2,12,A,Pass
+RICO POLLO II RESTAURANT,Brooklyn,Latin,Yes,No,1,23,B,Fail
+MAKE BELIEVE BAKE SHOP,Queens,Other,No,No,1,2,A,Pass
+ER HOTPOT,Manhattan,Asian,Yes,Yes,1,19,B,Fail
+W & Y BAKERY,Brooklyn,Other,Yes,Yes,1,24,B,Fail
+SOMA SALADS,Manhattan,Other,Yes,Yes,2,15,B,Fail
+PLANET TACO,Manhattan,Latin,Yes,Yes,3,26,B,Fail
+CAFE D'AVIGNON,Manhattan,Other,No,No,1,12,A,Pass
+LITTLE CAESARS,Queens,Italian/Pizza,No,No,1,9,A,Pass
+SUBWAY,Manhattan,American,No,No,1,5,A,Pass
+Bellhop Bar & Restaurant,Manhattan,American,Yes,No,1,9,A,Pass
+WOK WOK RESTAURANT,Manhattan,Asian,No,Yes,1,12,A,Pass
+ROCKWOOD MUSIC HALL,Manhattan,American,Yes,Yes,1,22,B,Fail
+SOPHRA TURKISH RESTAURANT,Manhattan,European,Yes,Yes,2,27,B,Fail
+EA DUMPLING,Manhattan,Asian,Yes,Yes,1,9,A,Pass
+TEX-MEX EXPRESS,Queens,Asian,No,Yes,1,7,A,Pass
+MEI CHUNG MEI RESTAURANT,Bronx,Asian,No,No,1,24,B,Fail
+TAQUERIA EMILIO,Manhattan,Latin,Yes,Yes,1,21,B,Fail
+M&S NICE RESTAURANT,Queens,American,Yes,Yes,1,18,B,Fail
+BURGER KING,Manhattan,American,No,No,1,9,A,Pass
+NOW OR NEVER COFFEE,Manhattan,Other,Yes,Yes,1,10,A,Pass
+PIZZA PARK,Manhattan,Italian/Pizza,Yes,No,1,12,A,Pass
+TRINITY PLACE BAR & RESTAURANT,Manhattan,American,No,No,1,10,A,Pass
+VIET SPOT,Manhattan,Asian,No,No,1,3,A,Pass
+JKJ 41,Queens,Asian,No,Yes,1,22,B,Fail
+PIER 66 MARITIME,Manhattan,American,No,No,1,12,A,Pass
+BACK TO JOHN'S DELI,Brooklyn,American,No,No,1,11,A,Pass
+EAST MET WEST,Brooklyn,Asian,No,No,1,13,A,Pass
+ISLAND GROVE RESTAURANT,Brooklyn,Latin,Yes,Yes,2,30,C,Fail
+VIDA,Queens,Other,No,Yes,1,12,A,Pass
+TRUE COLORS,Queens,American,Yes,Yes,1,10,A,Pass
+HUSH,Queens,American,Yes,Yes,2,26,B,Fail
+THE CORNELL CENTER OF NEW YORK,Manhattan,American,No,No,1,11,A,Pass
+DUNKIN,Queens,Other,Yes,Yes,1,10,A,Pass
+DOMINO'S,Queens,Italian/Pizza,No,Yes,1,11,A,Pass
+FRIJOLITO'S RESTAURANT,Manhattan,Latin,Yes,Yes,1,24,B,Fail
+MEEM SPICY GROCERY AND DELI,Manhattan,South Asian,Yes,Yes,4,69,C,Fail
+DIG INN SEASONAL MARKET,Manhattan,American,No,No,1,12,A,Pass
+RH NY GUESTHOUSE,Manhattan,American,No,No,1,13,A,Pass
+VINO KITCHEN & BAR,Queens,Italian/Pizza,No,No,1,13,A,Pass
+PHO NUMBER 1,Brooklyn,Asian,No,No,1,13,A,Pass
+PARADISE SPORTS BAR,Queens,Latin,Yes,Yes,2,25,B,Fail
+CHA CHA MATCHA,Manhattan,Other,No,No,1,13,A,Pass
+WELCOME TO THE JOHNSONS,Manhattan,American,No,No,1,13,A,Pass
+FITRITION,Queens,Other,Yes,Yes,2,45,C,Fail
+CAFE BY THE GIRLS,Manhattan,Other,Yes,No,1,10,A,Pass
+WOORI KOREAN RESTAURANT,Brooklyn,Asian,No,Yes,1,10,A,Pass
+LA NAPA,Brooklyn,Latin,Yes,Yes,4,18,B,Fail
+SIENA CAFE,Manhattan,Italian/Pizza,No,No,2,7,A,Pass
+YUM YUBU,Manhattan,Asian,No,No,1,9,A,Pass
+RYRY'S KITCHEN @ JAMAICA FOOD MARKET,Queens,Latin,Yes,No,1,12,A,Pass
+WENDYS,Brooklyn,American,No,No,1,8,A,Pass
+6TH AVE CAFE INC,Brooklyn,Asian,Yes,Yes,1,10,A,Pass
+LA POTENCIA BAR RESTAURANT,Bronx,Latin,Yes,No,3,23,B,Fail
+SUBWAY,Brooklyn,American,No,No,1,5,A,Pass
+STARBUCKS,Staten Island,Other,No,No,1,12,A,Pass
+TACOS TIME SQUARE,Manhattan,Other,No,Yes,2,17,B,Fail
+BOCCA,Manhattan,Italian/Pizza,Yes,No,1,20,B,Fail
+POPEYES,Brooklyn,American,No,Yes,1,13,A,Pass
+PICCOLI TRATTORIA,Brooklyn,Italian/Pizza,No,No,1,9,A,Pass
+CELLINI,Manhattan,Italian/Pizza,No,Yes,1,12,A,Pass
+MANGIA,Manhattan,American,Yes,No,1,24,B,Fail
+BUSHNIWA,Brooklyn,Asian,No,No,1,25,B,Fail
+B.B.'S PUB AND GRILL,Queens,American,Yes,Yes,2,25,B,Fail
+KIMCHI GRILL,Brooklyn,Asian,No,Yes,1,12,A,Pass
+THE GIBSON,Brooklyn,American,Yes,Yes,3,32,C,Fail
+CAFE SUPREMO COLOMBIAN BAKERY,Brooklyn,American,No,No,1,13,A,Pass
+TABARE,Brooklyn,American,Yes,No,1,12,A,Pass
+PAPA JOHN'S,Queens,Italian/Pizza,Yes,Yes,2,11,A,Pass
+GREAT WALL RESTAURANT,Queens,Asian,Yes,No,1,13,A,Pass
+PAZZA NOTTE,Manhattan,Italian/Pizza,No,No,1,11,A,Pass
+ELITE PASTRIES CAFE,Queens,Other,No,No,1,7,A,Pass
+LAGHMAN EXPRESS,Brooklyn,Asian,Yes,Yes,2,26,B,Fail
+SUBWAY,Manhattan,American,Yes,Yes,1,11,A,Pass
+LIFE TIME,Manhattan,Other,Yes,Yes,2,26,B,Fail
+JADE GARDEN,Bronx,Asian,Yes,Yes,1,13,A,Pass
+GHOROA,Brooklyn,South Asian,No,No,1,26,B,Fail
+RICHMOND COUNTY COUNTRY CLUB,Staten Island,American,No,No,1,11,A,Pass
+NAI BROTHER,Brooklyn,Asian,No,No,1,10,A,Pass
+IL POETA,Queens,Italian/Pizza,Yes,No,1,10,A,Pass
+DANTE WEST VILLAGE,Manhattan,Italian/Pizza,Yes,No,1,26,B,Fail
+LODI,Manhattan,Italian/Pizza,Yes,No,1,12,A,Pass
+NEW CHINA CHINESE RESTAURANT,Bronx,Asian,Yes,Yes,1,9,A,Pass
+FUSHIMI JAPANESE CUISINE,Staten Island,Asian,Yes,Yes,2,51,C,Fail
+LAS CHATAS TAQUERIA & DELI GROCERY,Bronx,Latin,No,No,1,11,A,Pass
+BODEGA 88,Manhattan,American,No,Yes,1,4,A,Pass
+BUSHWICK BURGER CO.,Brooklyn,American,Yes,Yes,1,12,A,Pass
+BEBE FRITAY,Brooklyn,Other,Yes,Yes,1,11,A,Pass
+ISLAND RIB HOUSE,Brooklyn,Other,No,No,1,7,A,Pass
+HENRY STREET ALE HOUSE,Brooklyn,American,No,Yes,2,26,B,Fail
+DUNKIN DONUTS,Brooklyn,Other,Yes,Yes,2,30,C,Fail
+AMY RUTH’S DOWNTOWN,Manhattan,Other,No,No,1,9,A,Pass
+GOLDEN KRUST CARIBBEAN BAKERY & GRILL,Brooklyn,Latin,Yes,Yes,3,53,C,Fail
+FISH & CHIPS,Brooklyn,American,No,No,1,7,A,Pass
+GREGORYS COFFEE,Manhattan,Other,No,Yes,1,21,B,Fail
+8282,Manhattan,Asian,Yes,No,2,13,A,Pass
+MAMAN,Manhattan,European,Yes,Yes,2,14,B,Fail
+MCDONALD'S,Manhattan,American,No,No,1,12,A,Pass
+KENNEDY FRIED CHICKEN,Bronx,American,Yes,Yes,2,18,B,Fail
+SARABETH'S,Manhattan,American,Yes,Yes,1,15,B,Fail
+ZAAD,Manhattan,European,Yes,No,1,14,B,Fail
+CHINA RIVER,Manhattan,Asian,No,No,1,26,B,Fail
+MIKE'S DONUTS,Brooklyn,Other,Yes,Yes,1,12,A,Pass
+KOMEME AHORA,Bronx,American,No,No,1,13,A,Pass
+DOMY PIZZA,Bronx,Italian/Pizza,Yes,Yes,2,21,B,Fail
+DRIP SWEAT,Manhattan,Other,No,No,1,7,A,Pass
+BONJOUR CREPES & WINE,Manhattan,American,No,Yes,1,24,B,Fail
+XUN YU SI KAO NY,Brooklyn,Asian,Yes,Yes,4,55,C,Fail
+JAVA GIRL,Manhattan,Other,No,Yes,1,11,A,Pass
+BRAIN FOOD THE SMART KITCHEN,Brooklyn,American,Yes,Yes,3,40,C,Fail
+KARIZMA LOUNGE,Manhattan,Other,Yes,Yes,1,12,A,Pass
+COOKLYN EATS,Brooklyn,Other,No,No,1,12,A,Pass
+786 PERI PERI GRILL,Queens,American,Yes,Yes,1,17,B,Fail
+POPEYES,Queens,American,Yes,No,1,13,A,Pass
+GOOD TASTE CHINESE RESTAURANT,Manhattan,Asian,Yes,Yes,2,13,A,Pass
+BKLYN EATS,Brooklyn,American,Yes,No,1,12,A,Pass
+CAVA,Brooklyn,European,No,No,1,11,A,Pass
+M SOCIAL NEW YORK DOWNTOWN,Manhattan,American,No,Yes,1,10,A,Pass
+THE CENTURION LOUNGE,Queens,American,Yes,Yes,1,12,A,Pass
+TROPICAL JADE 1,Queens,Latin,Yes,Yes,5,70,C,Fail
+SAO MAI,Manhattan,Asian,No,No,2,13,A,Pass
+GRACIE MEWS,Manhattan,American,Yes,No,1,10,A,Pass
+MASTERCARD,Manhattan,Other,No,No,1,7,A,Pass
+TAP BEER,Brooklyn,Other,Yes,Yes,1,12,A,Pass
+PATA PA-PLEAN,Queens,Asian,Yes,Yes,1,11,A,Pass
+JUMBO HAMBURGER PLACE,Manhattan,American,Yes,Yes,2,32,C,Fail
+DAMASCUS SWEETS,Bronx,Other,Yes,Yes,2,27,B,Fail
+SUNDAY IN BROOKLYN,Brooklyn,American,Yes,Yes,1,11,A,Pass
+PRING,Manhattan,Asian,Yes,Yes,2,18,B,Fail
+QINGDAO,Queens,Asian,Yes,No,1,26,B,Fail
+RESTAURANTE Y ANTOJITOS GUATELINDA,Queens,Latin,Yes,Yes,1,20,B,Fail
+SHAKE SHACK,Brooklyn,American,No,Yes,1,9,A,Pass
+ANAIAH,Brooklyn,American,No,No,1,8,A,Pass
+CROWN FRIED CHICKEN,Queens,American,Yes,Yes,2,13,A,Pass
+CHINA EXPRESS,Brooklyn,Asian,Yes,Yes,1,21,B,Fail
+THE BIRRIA ON THE BLOCK,Queens,Latin,No,No,1,9,A,Pass
+CLIPPER COFFEE,Bronx,Other,Yes,No,1,8,A,Pass
+SWEET BASIL,Brooklyn,Asian,Yes,No,1,13,A,Pass
+ORBITALS KITCHEN 9ROOM 109-106),Bronx,Other,No,No,1,11,A,Pass
+SWEET SCENE ASTORIA,Queens,Other,Yes,No,1,13,A,Pass
+MITO ASIAN FUSION,Queens,Asian,Yes,Yes,2,19,B,Fail
+DUNKIN,Bronx,Other,No,No,1,5,A,Pass
+MOMO SUSHI,Manhattan,Asian,Yes,No,1,16,B,Fail
+CHIPOTLE MEXICAN GRILL,Manhattan,Other,No,Yes,1,13,A,Pass
+VANILLA GORILLA CAFE,Manhattan,Other,Yes,No,1,13,A,Pass
+RASPBERRY DELI & GROCERY,Manhattan,American,No,No,1,7,A,Pass
+MIKE'S PIZZA & RESTAURANT,Brooklyn,Italian/Pizza,No,No,1,9,A,Pass
+JOE'S OF AVE U,Brooklyn,Italian/Pizza,Yes,Yes,2,19,B,Fail
+5 STAR PIZZA,Bronx,Italian/Pizza,Yes,Yes,3,21,B,Fail
+DUNKIN,Queens,American,Yes,Yes,1,7,A,Pass
+CHINA HOUSE,Queens,Asian,Yes,No,1,11,A,Pass
+NEW YEE LI RESTAURANT,Brooklyn,Asian,Yes,Yes,1,17,B,Fail
+KING GARDEN RESTAURANT,Manhattan,Asian,Yes,Yes,1,12,A,Pass
+BARRILES,Queens,American,Yes,Yes,2,37,C,Fail
+NURSE BETTIE,Manhattan,American,No,Yes,1,4,A,Pass
+WOODROW DINER,Staten Island,American,No,Yes,1,12,A,Pass
+CUTEST COOKIES,Staten Island,Other,No,No,1,7,A,Pass
+SIXTY THREE CLINTON,Manhattan,American,Yes,Yes,1,23,B,Fail
+SIMPLY SWEET,Brooklyn,Other,Yes,Yes,2,13,A,Pass
+KORI'S EAT,Bronx,Latin,No,Yes,1,12,A,Pass
+NEW ZHONG HAN MIAN SHI (STE #30),Queens,Asian,No,No,1,12,A,Pass
+DAVE'S HOT CHICKEN,Manhattan,American,No,No,1,12,A,Pass
+TAQUERIA SANTA FE,Queens,Latin,Yes,No,2,27,B,Fail
+DUNKIN',Queens,Other,Yes,No,1,13,A,Pass
+NY BAKERY & DESSERTS,Manhattan,Other,Yes,Yes,1,20,B,Fail
+DORADO,Manhattan,Other,No,No,1,13,A,Pass
+LINDEN FRIED CHICKEN,Brooklyn,American,No,No,1,13,A,Pass
+NITEHAWK CINEMA,Brooklyn,American,Yes,No,1,7,A,Pass
+LLAMA SAN,Manhattan,Other,No,No,1,12,A,Pass
+THE RABBIT HOLE,Queens,American,Yes,No,1,12,A,Pass
+CHINA CITY,Brooklyn,Asian,No,No,1,12,A,Pass
+TIN CUP CAFE,Brooklyn,American,Yes,No,1,12,A,Pass
+THE NEW DINETTE,Staten Island,American,Yes,Yes,3,28,C,Fail
+MALKA,Brooklyn,Other,Yes,Yes,1,12,A,Pass
+FRESH&CO,Manhattan,American,No,No,1,12,A,Pass
+BELLA'S ITALIAN ICES,Queens,Other,No,No,1,13,A,Pass
+NOVO DELI,Queens,American,Yes,Yes,2,53,C,Fail
+JAEW HON,Queens,Asian,Yes,No,1,12,A,Pass
+THREE DECKER RESTAURANT,Manhattan,American,Yes,No,1,10,A,Pass
+QINGDAO,Queens,Asian,Yes,No,1,44,C,Fail
+KENNEDY FRIED CHICKEN,Bronx,American,Yes,Yes,2,41,C,Fail
+CULINART @ 1250 HUTCH METRO,Bronx,American,Yes,Yes,1,11,A,Pass
+DUNKIN,Queens,American,No,No,1,8,A,Pass
+EL CLUB VALLE RESTAURANT,Bronx,Latin,Yes,No,1,9,A,Pass
+NEW RUAN'S RESTAURANT,Brooklyn,Asian,Yes,No,1,16,B,Fail
+CHIPOTLE MEXICAN GRILL #3312,Queens,Latin,No,No,1,4,A,Pass
+ELDER GREENE,Brooklyn,American,Yes,No,1,18,B,Fail
+B.F. NATIONAL BAKERY,Bronx,Other,Yes,Yes,1,40,C,Fail
+PURE BISTRO,Brooklyn,American,Yes,No,2,12,A,Pass
+GRIFF'S PLACE,Staten Island,American,No,Yes,1,12,A,Pass
+LEBANESE EATERY,Staten Island,European,Yes,Yes,1,12,A,Pass
+MEZZALUNA,Manhattan,Italian/Pizza,No,Yes,1,11,A,Pass
+MARIO'S PIZZA,Queens,Italian/Pizza,No,No,1,13,A,Pass
+LOS 3 CHARROS,Manhattan,Latin,No,No,1,12,A,Pass
+SPRING CAFE,Manhattan,Other,Yes,Yes,1,12,A,Pass
+MEE SUM CAFE,Manhattan,Other,Yes,Yes,5,51,C,Fail
+TACO BELL,Brooklyn,Latin,No,No,1,13,A,Pass
+OASIS RAMEN HOUSE,Queens,Asian,Yes,Yes,2,12,A,Pass
+BLACK SEED BAGELS,Brooklyn,Other,No,No,2,7,A,Pass
+FARM TO BURGER,Manhattan,American,No,No,1,11,A,Pass
+YANKEE'S 99 CENTS HOT PIZZA,Bronx,Italian/Pizza,No,No,1,10,A,Pass
+STARBUCKS,Staten Island,Other,Yes,Yes,1,13,A,Pass
+YAAAS TEA,Queens,Other,No,No,1,13,A,Pass
+TAVERN ON THE GREEN,Manhattan,American,Yes,Yes,1,13,A,Pass
+ALFIE'S,Manhattan,Other,No,Yes,1,12,A,Pass
+CAFE HESTIA,Manhattan,American,No,No,1,13,A,Pass
+CUNY GRADUATE CENTER-DINING COMMONS (E0688),Manhattan,American,No,No,1,6,A,Pass
+BURGER KING,Brooklyn,American,No,No,1,13,A,Pass
+"DUNKIN', BASKIN ROBBINS",Queens,Other,Yes,Yes,1,12,A,Pass
+PICK-A-BAGEL,Manhattan,American,Yes,Yes,2,26,B,Fail
+FIVE GUYS,Manhattan,American,Yes,Yes,1,10,A,Pass
+SHABU TATSU,Manhattan,Asian,No,No,1,7,A,Pass
+CROWN FRIED CHICKEN & PIZZA,Brooklyn,American,Yes,Yes,2,24,B,Fail
+COSMOS RESTAURANT,Bronx,American,Yes,Yes,3,35,C,Fail
+876 CARIBBEAN EATERY,Queens,Latin,Yes,Yes,5,60,C,Fail
+BAR BELLY,Manhattan,American,No,Yes,1,26,B,Fail
+CHILI'S GRILL & BAR,Staten Island,Other,No,No,1,12,A,Pass
+TROOST,Brooklyn,American,Yes,Yes,2,26,B,Fail
+PICCOLO SOGNO,Queens,Italian/Pizza,No,No,1,10,A,Pass
+FANDI MATA,Brooklyn,European,Yes,Yes,1,10,A,Pass
+K & L RESTAURANT AND CATERING SERVICE,Bronx,Latin,No,Yes,1,23,B,Fail
+OBAO,Manhattan,Asian,Yes,Yes,1,18,B,Fail
+BROADSTONE BAR & KITCHEN,Manhattan,American,Yes,Yes,2,27,B,Fail
+INCREDIBOWL,Queens,Asian,Yes,Yes,1,12,A,Pass
+PASTICCERIA LA TORRE,Queens,Other,No,No,1,11,A,Pass
+MANHATTAN PENTHOUSE,Manhattan,American,Yes,No,1,12,A,Pass
+PRIME PIZZA KITCHEN,Staten Island,Italian/Pizza,Yes,No,1,9,A,Pass
+DUNKIN',Manhattan,Other,Yes,No,1,9,A,Pass
+WENDY'S,Brooklyn,American,No,No,1,5,A,Pass
+EL RUMBERO,Queens,American,Yes,No,1,20,B,Fail
+OZEN,Manhattan,Asian,No,No,1,9,A,Pass
+FU SING,Manhattan,Asian,Yes,Yes,1,22,B,Fail
+LE FRENCH DINER,Manhattan,European,Yes,Yes,1,13,A,Pass
+ROLL & KATSU KITCHEN,Manhattan,Asian,Yes,Yes,1,10,A,Pass
+JOE'S,Queens,Italian/Pizza,No,Yes,1,10,A,Pass
+VAN DA,Manhattan,Asian,Yes,Yes,1,11,A,Pass
+CHO-KO RESTAURANT,Manhattan,Asian,No,Yes,1,11,A,Pass
+GOLDEN HOF/ NY KIMCHI,Manhattan,Asian,Yes,Yes,1,12,A,Pass
+THE BROOKLYN STRATEGIST,Brooklyn,American,No,No,1,12,A,Pass
+DOUBLE DRINKS/DOUBLE TASTE,Brooklyn,Asian,Yes,Yes,3,29,C,Fail
+JD BREAKFAST & COFFEE,Queens,Other,No,No,1,12,A,Pass
+DUNKIN,Queens,American,No,No,1,10,A,Pass
+NIUDDO,Queens,Asian,No,No,1,11,A,Pass
+THE COTTAGE TAVERN,Queens,Other,Yes,Yes,1,24,B,Fail
+ZIG ZAG,Brooklyn,American,Yes,No,1,5,A,Pass
+KING OF TANDOOR,Brooklyn,South Asian,Yes,Yes,1,12,A,Pass
+LA BONANZA BAKERY,Queens,Other,No,Yes,1,11,A,Pass
+DIG INN,Manhattan,American,Yes,No,2,24,B,Fail
+CHIPOTLE MEXICAN GRILL,Manhattan,American,No,No,1,9,A,Pass
+STARBUCKS,Manhattan,Other,No,No,1,6,A,Pass
+CAYENA LOUNGE,Bronx,American,Yes,No,1,13,A,Pass
+EASTERN NIGHTS,Queens,Other,No,No,1,13,A,Pass
+CANAL BAR,Brooklyn,American,Yes,Yes,1,12,A,Pass
+HAPPY LAMB,Queens,Asian,Yes,Yes,1,13,A,Pass
+THE VIEW,Manhattan,American,No,No,1,13,A,Pass
+TAIWAN STATION,Brooklyn,Asian,Yes,Yes,1,12,A,Pass
+FU LAI,Brooklyn,Asian,No,No,1,21,B,Fail
+POLLO NENE,Queens,Latin,No,No,1,12,A,Pass
+POPEYES LOUISIANA KITCHEN,Bronx,American,No,No,1,9,A,Pass
+MESA COYOACAN,Brooklyn,Latin,Yes,No,1,25,B,Fail
+SPRING CAFE ASPEN,Manhattan,Other,Yes,Yes,1,8,A,Pass
+BARNES & NOBLE CAFE,Brooklyn,Other,Yes,No,1,12,A,Pass
+EL COMAL RESTAURANT,Queens,American,Yes,Yes,3,38,C,Fail
+LIMANI,Manhattan,European,No,No,1,10,A,Pass
+PORTA 23,Queens,American,Yes,No,1,12,A,Pass
+CROWN FRIED CHICKEN,Brooklyn,American,Yes,Yes,2,25,B,Fail
+LE CAFE COFFEE,Manhattan,Other,Yes,No,1,9,A,Pass
+PEPPA'S JERK CHICKEN,Manhattan,Other,Yes,No,1,13,A,Pass
+PARIS BAGUETTE,Queens,Other,Yes,Yes,1,12,A,Pass
+CHIPOTLE MEXICAN GRILL,Manhattan,American,Yes,Yes,1,8,A,Pass
+SOCIAL TERRACE,Manhattan,Other,Yes,Yes,1,10,A,Pass
+THE BRAZEN HEAD,Brooklyn,American,Yes,Yes,1,8,A,Pass
+HOME GARDEN,Bronx,Asian,No,No,1,11,A,Pass
+RONG HANG RESTAURANT,Manhattan,Asian,No,No,1,11,A,Pass
+REALCARIBBEANPOT RESTAURANT & BAKERY,Brooklyn,Latin,Yes,Yes,3,41,C,Fail
+GOLDEN WOK CHINESE RESTAURANT,Manhattan,Asian,No,No,1,24,B,Fail
+AUNTIE ANNE'S PRETZEL/CINNABON,Queens,Other,Yes,No,1,10,A,Pass
+LORENZOS BAR & GRILL (HILTON GARDEN),Staten Island,American,No,Yes,1,13,A,Pass
+COFFEE PROJECT NEW YORK - CHELSEA,Manhattan,Other,No,Yes,2,12,A,Pass
+LET'S MEAT,Manhattan,Asian,Yes,No,1,12,A,Pass
+SUSHI SEKI,Manhattan,Asian,Yes,Yes,1,13,A,Pass
+LA CHACRA,Brooklyn,Other,Yes,Yes,1,13,A,Pass
+VILLA CASTILLO RESTAURANT,Brooklyn,American,No,Yes,1,28,C,Fail
+SUGABOX,Manhattan,Other,Yes,No,1,12,A,Pass
+MADMAN ESPRESSO& BAGELS,Manhattan,American,Yes,No,1,12,A,Pass
+750 MYRTLE DINER,Brooklyn,Asian,No,No,1,42,C,Fail
+AJO & OREGANO RESTAURANT,Bronx,Latin,Yes,Yes,1,13,A,Pass
+MILAN SPORTS BAR,Queens,Other,Yes,Yes,2,33,C,Fail
+K POT KOREAN BBQ & HOT POT,Bronx,Asian,No,Yes,1,12,A,Pass
+OSTERIA LA BAIA,Manhattan,Italian/Pizza,Yes,Yes,1,26,B,Fail
+THE COPPOLA CAFE,Manhattan,Italian/Pizza,Yes,Yes,4,56,C,Fail
+SCHNIPPER'S,Manhattan,American,No,No,1,9,A,Pass
+THE GREY DOG,Manhattan,American,Yes,Yes,1,8,A,Pass
+BIRCH COFFEE,Manhattan,Other,No,No,2,7,A,Pass
+EL CABRON TACOS AND MARISCOS,Manhattan,Latin,No,No,1,13,A,Pass
+COMMONS CAFE AT DENTISTRY COLLEGE,Manhattan,American,No,No,1,7,A,Pass
+MCDONALD'S,Bronx,American,Yes,No,1,8,A,Pass
+EL NUEVO BOHIO TROPICAL,Bronx,American,No,No,1,10,A,Pass
+LIFEWORKS@NBA NYC,Manhattan,American,No,No,1,12,A,Pass
+PICCOLO CAFE,Manhattan,Italian/Pizza,No,No,1,11,A,Pass
+BENSONHURST COFFEE,Brooklyn,European,No,No,1,8,A,Pass
+GONGCHA,Brooklyn,Other,No,No,1,0,A,Pass
+WHITE CASTLE,Queens,American,Yes,No,1,8,A,Pass
+CAVIAR KASPIA AT THE MARK,Manhattan,European,Yes,No,1,10,A,Pass
+THE WEST,Brooklyn,Other,Yes,Yes,2,22,B,Fail
+RED BOWL,Brooklyn,Asian,Yes,No,1,13,A,Pass
+WIN HOU,Queens,Asian,Yes,Yes,1,11,A,Pass
+PIPS,Brooklyn,Italian/Pizza,Yes,Yes,3,26,B,Fail
+THE HIGH NOTE / POPCHEW,Manhattan,American,No,Yes,1,18,B,Fail
+BOGATI,Queens,Other,Yes,Yes,3,20,B,Fail
+SIP N CHAT COCKTAIL,Brooklyn,Latin,No,No,1,10,A,Pass
+LADY CHOW KITCHEN,Manhattan,Asian,No,Yes,1,31,C,Fail
+KOTO SUSHI,Brooklyn,Asian,No,No,1,9,A,Pass
+LA MADRINA,Bronx,Latin,No,No,1,8,A,Pass
+LITE BITES,Brooklyn,American,Yes,No,1,7,A,Pass
+BROADWAY AU LAIT,Manhattan,Other,No,No,1,11,A,Pass
+TACO BELL,Brooklyn,Other,Yes,No,2,13,A,Pass
+BLACK THAI,Queens,Asian,No,No,1,10,A,Pass
+S & L HIGH GRADE,Queens,Other,Yes,Yes,3,53,C,Fail
+QUALITY MEATS,Manhattan,Other,Yes,No,1,13,A,Pass
+AMOR LOCO,Manhattan,Latin,Yes,No,1,12,A,Pass
+PIZZA HUT,Bronx,Italian/Pizza,No,Yes,1,13,A,Pass
+HONEY MOON COFFEE SHOP,Queens,Other,No,No,1,0,A,Pass
+TACO BELL,Queens,Other,No,Yes,1,23,B,Fail
+INDAY,Brooklyn,South Asian,Yes,Yes,1,20,B,Fail
+LE ZIA CAFE,Queens,American,Yes,Yes,1,27,B,Fail
+"THE POOL CLUB, 4TH FLOOR PANTRY, BAR, & EVENTS KITCHEN",Manhattan,American,Yes,No,1,11,A,Pass
+JUICY CUBE,Manhattan,Other,No,No,1,8,A,Pass
+CUCHIFRITOS,Bronx,Latin,Yes,No,1,11,A,Pass
+AU BON PAIN,Queens,American,No,No,1,12,A,Pass
+VARIETY COFFEE ROASTERS,Brooklyn,Other,Yes,Yes,1,13,A,Pass
+DOMINOS,Staten Island,Italian/Pizza,Yes,Yes,1,13,A,Pass
+LA CHOZA DEL GORDO,Queens,American,Yes,Yes,1,13,A,Pass
+ESSEX,Manhattan,American,Yes,Yes,2,35,C,Fail
+JOONG KOOG JIP,Queens,Asian,Yes,Yes,1,9,A,Pass
+PUMPERNICKEL BAGEL,Queens,American,No,No,1,11,A,Pass
+JIN SANG GUKBAP,Queens,Asian,Yes,Yes,3,36,C,Fail
+BLANK STREET COFFEE,Manhattan,Other,No,Yes,1,8,A,Pass
+212 STEAKHOUSE,Manhattan,Other,No,No,1,10,A,Pass
+FIRST STOP BAR & GRILL,Queens,American,Yes,Yes,2,10,A,Pass
+"DUNKIN',' BASKIN ROBBINS",Bronx,American,No,No,1,8,A,Pass
+PRETTY RICKY'S,Manhattan,American,No,No,1,10,A,Pass
+LA ESQUINITA LATIN FOOD,Queens,American,Yes,Yes,1,18,B,Fail
+QUALITY CHEF,Bronx,Asian,Yes,Yes,1,24,B,Fail
+JOE'S HOME OF SOUP DUMPLINGS,Manhattan,Asian,No,No,1,5,C,Fail
+FULTON HALL,Brooklyn,American,Yes,No,1,10,A,Pass
+PASQUALE'S RIGOLETTO RESTAURANT,Bronx,Italian/Pizza,No,Yes,1,13,A,Pass
+"BURGER KING, POPEYES",Queens,American,Yes,Yes,1,11,A,Pass
+ZUMA NEW YORK,Manhattan,Asian,Yes,No,1,10,A,Pass
+GOLDEN KRUST CARIBBEAN BAKERY & GRILL,Brooklyn,Latin,No,No,1,12,A,Pass
+BRISAS DEL MAR RESTAURANT,Queens,American,No,Yes,1,12,A,Pass
+BAR MADONNA,Brooklyn,Italian/Pizza,No,No,1,9,A,Pass
+HOT SPOT GRILL & JERK,Bronx,Latin,Yes,Yes,3,20,B,Fail
+SLEEP NO MORE AT THE MCKITTRICK HOTEL,Manhattan,American,Yes,Yes,1,9,A,Pass
+CHIPOTLE MEXICAN GRILL,Manhattan,Other,Yes,Yes,2,17,B,Fail
+EL REY,Queens,American,Yes,Yes,2,27,B,Fail
+TU CASA RESTAURANT,Queens,Other,Yes,Yes,2,13,A,Pass
+BUTTERFIELD KITCHEN,Manhattan,American,No,Yes,2,18,B,Fail
+UPTOWN SQUEEZE,Manhattan,Other,No,No,1,13,A,Pass
+JOHN & JOE PIZZERIA & RESTAURANT,Bronx,Italian/Pizza,No,No,1,8,A,Pass
+RAIN II,Manhattan,Asian,No,No,1,7,A,Pass
+RESTAURANT ASSOCIATES / CITADEL,Manhattan,American,No,No,1,6,A,Pass
+COPPA,Manhattan,Other,No,Yes,1,0,A,Pass
+SHANDAR SWEET & RESTAURANT,Brooklyn,South Asian,Yes,Yes,1,27,B,Fail
+LA TERNURA,Brooklyn,American,Yes,Yes,2,58,C,Fail
+PLAYA BOWLS,Brooklyn,Other,Yes,No,1,17,B,Fail
+MONTEZUMA RESTAURANT,Bronx,Latin,No,Yes,1,15,B,Fail
+THE CONTINENTAL,Brooklyn,Other,No,Yes,1,10,A,Pass
+KAM KITCHEN,Queens,Asian,Yes,Yes,1,7,A,Pass
+STAY FIT NUTRITION,Brooklyn,Other,Yes,No,1,12,A,Pass
+SPEEDY ROMEO,Brooklyn,Italian/Pizza,Yes,Yes,1,33,C,Fail
+ZARO'S FAMILY BAKERY,Manhattan,Other,No,No,1,13,A,Pass
+UPSIDE,Brooklyn,Italian/Pizza,No,No,1,10,A,Pass
+ALEX'S PIZZA & DELI,Queens,American,No,No,1,10,A,Pass
+FUKUROU BROOKLYN,Brooklyn,Asian,Yes,No,1,25,B,Fail
+RESTAURANT ASSOCIATES @ AMAZON JFK24,Manhattan,American,No,No,1,4,A,Pass
+WENDY'S,Queens,American,Yes,Yes,2,9,A,Pass
+JODY'S CLUB,Staten Island,American,Yes,Yes,1,13,A,Pass
+MCDONALD'S,Brooklyn,American,Yes,Yes,1,5,A,Pass
+V BELVEOERE,Manhattan,Other,No,No,2,4,A,Pass
+BASS CAFE,Manhattan,American,Yes,Yes,1,11,A,Pass
+BENTON SUSHI,Manhattan,Asian,Yes,Yes,2,17,B,Fail
+KENNEDY FRIED CHICKEN,Bronx,American,Yes,Yes,2,16,B,Fail
+THERAPY WINE BAR 2.0,Brooklyn,American,No,No,2,11,A,Pass
+BITE,Manhattan,American,No,Yes,1,15,B,Fail
+KING'S CHEF CHINESE RESTAURANT,Bronx,Asian,No,No,1,11,A,Pass
+MISTER CHICKEN II,Queens,American,Yes,Yes,3,31,C,Fail
+STOP & ENJOY,Queens,American,Yes,Yes,1,11,A,Pass
+EL GAUCHITO II,Queens,Other,No,No,1,12,A,Pass
+DUNKIN',Manhattan,Other,No,No,1,4,A,Pass
+COURT HOUSE GOURMET DELI,Queens,American,Yes,Yes,4,48,C,Fail
+SUBWAY,Staten Island,American,No,No,1,10,A,Pass
+TASTY'S DINER,Queens,American,Yes,No,1,13,A,Pass
+55 DELI-COFFEE SHOP,Queens,Latin,Yes,Yes,4,36,C,Fail
+LA BONNE SOUPE,Manhattan,European,No,Yes,1,13,A,Pass
+DUNKIN',Bronx,Other,Yes,Yes,1,10,A,Pass
+PIXIE SCOUT CANTEEN,Manhattan,American,No,Yes,1,13,A,Pass
+TIO PIO,Manhattan,American,Yes,No,1,10,A,Pass
+NEW YORK FRIED CHICKEN,Queens,American,Yes,No,1,33,C,Fail
+BZ GRILL,Queens,European,Yes,Yes,2,13,A,Pass
+IRESTAURANT,Brooklyn,Asian,Yes,No,1,27,B,Fail
+LOVEBIRDS,Brooklyn,American,No,No,1,11,A,Pass
+ARIANA KEBAB HOUSE,Manhattan,Other,Yes,Yes,1,12,A,Pass
+MCDONALD'S,Queens,American,No,No,2,11,A,Pass
+JOJU / JOJU BOWL,Queens,Asian,Yes,Yes,2,20,B,Fail
+CROWN HEIGHTS HOUSE OF WINGS,Brooklyn,American,No,Yes,1,13,A,Pass
+CONTINENTAL LUNCHEONETTE & DELI,Queens,American,No,Yes,1,15,B,Fail
+TBAAR,Queens,Other,Yes,No,1,12,A,Pass
+VERY JUICE,Brooklyn,Other,Yes,Yes,1,19,B,Fail
+PIG 'N' WHISTLE,Manhattan,Other,No,Yes,2,36,C,Fail
+SOHO SUSHI,Manhattan,Asian,Yes,Yes,4,31,C,Fail
+DON DON,Manhattan,Asian,No,No,1,7,A,Pass
+NEW TIMES SQUARE PIZZA,Manhattan,Italian/Pizza,No,No,1,11,A,Pass
+STARBUCKS COFFEE #29856,Brooklyn,Other,No,No,1,8,A,Pass
+BIRCH COFFEE,Manhattan,Other,No,No,1,9,A,Pass
+SILVIA'S CAFE,Queens,Other,Yes,No,1,9,A,Pass
+SHAN DONG DUMPLING,Manhattan,Asian,No,No,1,8,A,Pass
+STEP IN RESTAURANT & LOUNGE,Bronx,American,Yes,Yes,1,5,A,Pass
+BURGER KING,Brooklyn,American,No,No,1,10,A,Pass
+MEZCALUNA,Queens,Latin,No,No,1,5,A,Pass
+BANTER,Manhattan,Other,Yes,Yes,1,10,A,Pass
+TRIA DINER,Manhattan,American,Yes,Yes,2,27,B,Fail

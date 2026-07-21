@@ -1,0 +1,136 @@
+
+---
+title: "Week 09 `gt` Tables"
+author: Ryan Ang
+
+format:
+  html:
+    embed-resources: true
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(gt)
+
+trade <- read_csv("asean_trade_by_country_and_mode_of_transport.csv")
+```
+
+```{r}
+gt_preview(trade)
+```
+```{r}
+gt(trade <- pivot_wider(trade, names_from = mode, values_from = million_usd))
+```
+```{r}
+class(gt(trade))
+```
+```{r}
+trade |> gt() |> tab_options(quarto.disable_processing = TRUE)
+```
+```{r}
+# Repetition of 2021 and 2022 impedes readability.
+# Repetition can be avoided by grouping rows by year. 
+# By default, group names appear in rows above groups.
+# See rendered output
+
+trade |> 
+  gt(groupname_col = "year") |> 
+  tab_options(
+    table.font.size = 13, 
+    quarto.disable_processing = TRUE
+    )
+```
+```{r}
+# Alternatively, group names can also be placed
+# at the leftmost new dedicated column
+
+# See rendered output
+
+trade |> 
+  gt(
+    groupname_col = "year", 
+    row_group_as_column = TRUE
+    ) |>
+  tab_options(
+    table.font.size = 13, 
+    quarto.disable_processing = TRUE
+    )
+```
+```{r}
+# A stub is a column that contains 
+# labels for the corresponding rows. 
+
+# While not every table has a stub, 
+# the country names serve as a natural choice here.
+
+# In the rendered output, 
+# country names are displayed in the leftmost column,
+# acting as stub, and separated by a vertical line.
+
+
+trade |>
+  gt(
+    rowname_col = "country", 
+    groupname_col = "year"
+  ) |>
+  tab_options(
+    table.font.size = 13, 
+    quarto.disable_processing = TRUE
+  )
+```
+```{r}
+trade_reduced <- 
+  trade |> filter(country %in% c("Brunei Darussalam", "Malaysia", "Viet Nam")) 
+```
+
+```{r}
+trade_reduced |>
+  gt(
+    rowname_col = "country", 
+    groupname_col = "year") |>
+  tab_options(quarto.disable_processing = TRUE) |>
+  tab_header(
+    title = "**ASEAN** Trade in Goods by Country and *Mode of Transport*",
+    subtitle = "in million US$, 2021-2022 Generared by `gt`")
+```
+```{r}
+gt_trade_snippet <- trade_reduced |>
+  gt(rowname_col = "country", groupname_col = "year") |>
+  tab_options(quarto.disable_processing = TRUE) |>
+  tab_header(
+    title = md("**ASEAN** Trade in Goods by *Country* and *Mode of Transport*"),
+    subtitle = md("in million US$, 2021-2022 Generared by `gt`")
+  )
+gt_trade_snippet
+```
+```{r}
+gt_trade_snippet <- tab_spanner(
+  gt_trade_snippet,
+  "Mode",
+  columns = Air:Unknown
+)
+gt_trade_snippet
+```
+```{r}
+gt_trade_snippet <- tab_stubhead(gt_trade_snippet, "Country")
+gt_trade_snippet
+```
+```{r}
+gt_trade_snippet <- tab_footnote(
+  gt_trade_snippet,
+  "Data available in total",
+  locations = cells_stub("Viet Nam"))
+gt_trade_snippet
+```
+```{r}
+gt_trade_snippet <- tab_stubhead(gt_trade_snippet, "Country")
+gt_trade_snippet
+```
+```{r}
+gt_trade_snippet <- tab_footnote(
+  gt_trade_snippet,
+  "Data available in total",
+  locations = cells_stub("Viet Nam"))
+gt_trade_snippet
+```

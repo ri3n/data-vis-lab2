@@ -1,0 +1,132 @@
+---
+title: "week4"
+format: html
+---
+
+```{r}
+# load libraries
+# Load the tidyverse package
+library(tidyverse)
+
+# or load the readr package
+library(readr)
+
+library(gt)
+
+library(dplyr)
+
+```
+
+```{r}
+people <- read_csv("data/people.csv", show_col_types=FALSE)
+tickets <- read_csv("data/tickets.csv", show_col_types=FALSE)
+lifeboats <- read_csv("data/lifeboats.csv", show_col_types=FALSE)
+
+shareholders <- read_csv("data/shareholders.csv", show_col_types=FALSE)
+traded_companies <- read_csv("data/traded_companies.csv", show_col_types=FALSE)
+products <- read_csv("data/products.csv", show_col_types=FALSE)
+shares <- read_csv("data/shares.csv", show_col_types=FALSE)
+dividends_per_share <- read_csv("data/dividends_per_share.csv", show_col_types=FALSE)
+```
+
+```{r}
+# x - table 1
+# y - table 2
+# outer join: extend columns
+# inner join: extend rows
+```
+
+``` {r}
+# inner join one-to-one
+inner_join(
+  shareholders, # first table
+  traded_companies, # second table
+  join_by(sh_holder_name == comp_name), # key
+  relationship = "one-to-one" # relationship
+  )
+```
+```{r}
+# select certain columns
+inner_join(
+  shareholders,
+  traded_companies,
+  join_by(sh_holder_name == comp_name),
+  relationship = "one-to-one"
+  ) |>
+  select(sh_holder_id, sh_holder_name, comp_id)
+```
+```{r}
+# inner join - one-to-many
+inner_join(
+  traded_companies,
+  products,
+  join_by(comp_id == comp_id),
+  relationship = "one-to-many" 
+) |>
+  select(comp_name, comp_id, prod_name)
+```
+```{r}
+# inner join - many-to-many ground truth
+inner_join(
+  shareholders,
+  traded_companies,
+  join_by(country == country),
+  relationship = "many-to-many" # suppresses warning
+) 
+```
+```{r}
+employees <- tibble(
+  emp_id = c(101, 102, 102),
+  name   = c("Bob", "Alice", "Alice")
+)
+
+access_cards <- tibble(
+  card_id = c(500, 501, 502),
+  emp_id  = c(101, 103, 104)
+)
+
+left_join(
+  employees,
+  access_cards,
+  by = "emp_id",
+  relationship = "one-to-one"
+)
+```
+```{r}
+left_join(
+  shareholders,
+  traded_companies,
+  join_by(country),
+  relationship = "many-to-many"
+) |>
+  select(country, sh_holder_name, comp_name)
+```
+```{r}
+right_join(
+  shareholders,
+  traded_companies,
+  join_by(country),
+  relationship = "many-to-many"
+) |>
+  select(country, sh_holder_name, comp_name)
+```
+```{r}
+full_join(
+  shareholders,
+  traded_companies,
+  join_by(country),
+  relationship = "many-to-many"
+) |> select(country, sh_holder_name, comp_name) 
+```
+```{r}
+# semi join: returns all rows from x w/ match in y
+semi_join(shareholders, traded_companies, join_by(country))
+```
+```{r}
+# anti join: returns all rows from x w/o match in y
+anti_join(
+  shareholders, 
+  traded_companies, 
+  join_by(country)
+  )
+```

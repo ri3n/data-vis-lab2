@@ -1,0 +1,76 @@
+---
+title: "Week12lect"
+format: html
+---
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+raw <- readxl::read_xlsx("outputFile.xlsx", sheet = "T4", skip = 10) # read the data from the excel file, skip the first 10 rows as they are not relevant to our analysis
+```
+
+```{r}
+df <- raw |>
+  select('Data Series', ends_with("0")) |> # select the columns that are relevant to our analysis, which includes the 'Data Series' column and any columns that end with "0" (which represent the population data for different years)
+  slice(c(27:44, 50, 52:69, 75)) |> # select the rows that are relevant to our analysis, which include the age groups and the total population
+  mutate(
+    sex = if_else(row_number() <= n() / 2, "Male", "Female") 
+  ) |> # create a new column to store gender information, where the first half of the rows are males and the second half are females according to data
+  rename(age = 'Data Series') # rename the 'Data Series' column to 'age' for better clarity
+  # mutate(age = parse_number(age))  # Not used as the final y-axis should be character string
+```
+
+```{r}
+df <- df |> mutate(
+  age = case_when(
+    age == "90 Years & Over" ~ ">90", # replace "90 Years & Over" with ">90", making it consistent with the targeted visualization
+    TRUE ~ str_replace(age, " Years", "") # replace " Years" with an empty string, making it consistent with the targeted visualization
+    )) |>
+  mutate(age = fct_inorder(age)) # keep the order as is. Other wise 0 - 4 will be followed by 10 - 14, not 5 - 9
+```
+
+```{r}
+# There are many alternative ways to cast the four columns into numeric
+# It is worth noting that up till now the NA values are filled with character "na" in the data frame
+# However, when you convert the columns into numeric, the "na" will be converted into NA (missing value) in R
+df$`1990` = as.numeric(df$`1990`)
+df$`1980` = as.numeric(df$`1980`)
+df$`1970` = as.numeric(df$`1970`)
+df$`1960` = as.numeric(df$`1960`)
+```
+```{r}
+# If you run this chunk more than one time, error will occur as `df` is overwritten
+df <- pivot_longer(df, 
+    cols = c(2:8), #`2020`:`1960`, -c(age, sex)
+    names_to = "year",
+    values_to = "pop"
+  ) 
+```
+
+```{r}
+df_ready <- select(df, year, age, sex, pop) # select the relevant columns for our task
+```
+
+```{r}
+df_ready |> 
+  drop_na() |> # remove NA values to suppress warning
+  ggplot(aes(
+    if_else(sex == "Male", -pop, pop), # trick to plot "negative" bars
+    age, 
+    fill = sex
+  )) +
+  geom_col(alpha = 0.7) + # slightly reduce saturation
+  facet_wrap(vars(year), nrow = 2) + # facet the plot by year, with 2 rows
+  scale_fill_brewer(palette = "Set1") + # match the color scheme of the target visualization
+  scale_x_continuous(breaks = c(-100000, 0, 100000), labels = c("100,000", "0", "100,000")) + # trick to label x-axis
+  theme(legend.position = c(1, 0), legend.justification = c(1, 0)) + # match the legend position
+  labs(
+    x = "Population",
+    y = "Age (years)",
+    fill = "Sex",
+    title = "Singapore Resident Population between 1960 and 2020",
+    caption = "Source: Department of Statistics Singapore",
+    ) # match the labels and title of the target visualization
+```

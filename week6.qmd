@@ -1,0 +1,52 @@
+---
+title: "Week 06 Singapore Population Pyramid"
+author: Ryan
+
+format: 
+  html:
+    embed-resources: true
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+```
+
+Import raw data
+```{r}
+raw <- readxl::read_xlsx("outputFile.xlsx", sheet = "T4", skip = 10)
+```
+Clean data
+```{r}
+ready_to_visualize <- raw |>
+  # filter out rows 
+    filter(row_number() %in% c(27:44, 50, 52:69, 75)) |>
+  # remove "Years" in column "Data Series"
+    mutate(`Data Series` = str_remove(`Data Series`, " Years")) |>
+    rename(age = `Data Series`) |>
+  # special exception for 90 and over  
+    mutate(age = if_else(age == "90 & Over", ">90", age)) |>
+  # mutate all into numeric  
+  # select columns with year ending with 0
+  select(age, ends_with("0")) |>
+  # cast columns 1990:1960 to numeric
+  mutate(sex = if_else(row_number() <= n() / 2, "male", "female")) |>
+  mutate(across(5:8, as.numeric)) |>
+  pivot_longer(cols = 2:8, names_to = "year", values_to = "population") |>
+  # cast sex as factor with level c(female,male)
+  mutate(sex = factor(sex,levels = c("female", "male"))) |>
+  select(year,age,sex,population) |>
+  arrange(year,age)
+  
+```
+```{r}
+df <- tibble(
+  x = c("A", "B", "C", "C", "E"),
+  y = c(0.02, -0.14, -0.37, -0.29, 0.57)
+)
+
+df$x <- factor(df$x, levels = c("B", "D", "C", "E", "A"))
+
+df |> arrange(x)
+
+```

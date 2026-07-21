@@ -1,0 +1,112 @@
+---
+title: "week3"
+format: html
+---
+
+```{r}
+# load libraries
+# Load the tidyverse package
+library(tidyverse)
+
+# or load the readr package
+library(readr)
+
+library(gt)
+```
+```{r}
+# Import the data from the `.csv` files
+people <- read_csv("data/people.csv", show_col_types=FALSE)
+tickets <- read_csv("data/tickets.csv", show_col_types=FALSE)
+lifeboats <- read_csv("data/lifeboats.csv", show_col_types=FALSE)
+```
+
+```{r}
+class(people)
+```
+```{r}
+people |>
+  select(ends_with("name"))|>
+  head(3)
+```
+```{r}
+engineer_bodies <-
+  people |>
+  filter(
+str_detect(profession, "[Ee]ngineer") |
+  str_detect(job_on_board, "[Ee]ngineer"),
+!is.na(recovered_body)
+  ) |>
+  mutate(ticket_num = as.integer(ticket)) |>
+  select(fam_name, given_name, age, ticket_num, recovered_body)
+engineer_bodies |> head(4)
+```
+```{r}
+#pivoting setup
+job_per_port <-
+  people |>
+  filter(!is.na(job_on_board)) |>
+  count(embarkation_port, job_on_board, name = "num")
+job_per_port
+```
+```{r}
+#pivot wide
+x <- pivot_wider(
+  job_per_port,
+  names_from = embarkation_port,
+  values_from = num,
+  values_fill = 0
+)
+```
+
+```{r}
+# pivot long
+age_stats <-
+  people |>
+  summarize(
+    min = min(age, na.rm = TRUE),
+    lower_quartile = quantile(age, 0.25, na.rm = TRUE),
+    median = median(age, na.rm = TRUE),
+    upper_quartile = quantile(age, 0.75, na.rm = TRUE),
+    max = max(age, na.rm = TRUE),
+    .by = class
+  )
+age_stats
+```
+```{r}
+pivot_longer(
+  age_stats,
+  cols = c(
+    min,
+    lower_quartile,
+    median,
+    upper_quartile,
+    max
+  ),
+  names_to = "stat",
+  values_to = "value"
+) |>
+  arrange(class, value) |>
+  gt()
+
+```
+
+```{r}
+# Generate a time series of 1000 i.i.d. Gaussian random variables
+set.seed(1)
+iid_gaussian <- as_tibble(rnorm(1000, mean = 0, sd = 1))
+iid_gaussian |>
+  ggplot(aes(x = seq_along(value), y = value)) +
+  geom_line(color = "royalblue", linewidth = .5) +
+  labs(title = "i.i.d. Gaussian Process", x = "Sample Index", y = "Value") +
+  set_theme()
+
+```
+```{r}
+# Normalize the histogram counts to density scale
+iid_gaussian |>
+  ggplot(aes(x = value)) +
+  geom_histogram(aes(y = after_stat(density)), binwidth = 0.1, fill = "royalblue", color = "black") +
+  labs(title = "Normalized Histogram of i.i.d. Gaussian Process", x = "Value", y = "Density") +
+  stat_function(fun = dnorm, args = list(mean = 0, sd = 1), color = "red", size = 1) +
+  set_theme()
+```

@@ -1,0 +1,68 @@
+---
+title: "assignment1"
+format: html
+---
+
+# Task 1: Analyzing Country-Level Statistics on Gross National Expenditure (Constant 2015 US$)
+```{r}
+# Import required libraries
+library(tidyverse)
+library(tibble)
+library(readr)
+library(dplyr)
+```
+## About the Data
+```{r}
+
+```
+## Cleaning the Data
+```{r}
+clean_up_wb_csv <- function(
+    in_file_name,
+    out_file_name) {
+
+  # Examine the raw CSV file and implement necessary cleaning operations
+  # so you can import a cleaned file for subsequent query tasks.
+
+  df <- read_csv(
+    in_file_name,
+    skip = 4, # skip the 4 metadata rows
+    col_types = cols(.default = col_character()), # read everything as text first
+    show_col_types = FALSE
+  )
+ 
+  df <- df |>
+    select(where(~ !all(is.na(.))))   # keep only columns that aren't all-NA
+ 
+  df <- df |>
+    rename(
+      country_name   = `Country Name`,
+      country_code   = `Country Code`,
+      indicator_name = `Indicator Name`,
+      indicator_code = `Indicator Code`
+    )
+  
+  df <- df |>
+    mutate(across(
+      all_of(year_cols),
+      ~ suppressWarnings(as.numeric(.))
+    ))
+  
+  write_csv(df, out_file_name)
+
+  invisible(df)
+}
+```
+## Importing the Data to R-Studio
+```{r}
+country_codes <- clean_up_wb_csv("data/country_codes.csv", "data_clean/country_codes.csv")
+world_bank_pop <- clean_up_wb_csv("data/world_bank_total_population/API_SP.POP.TOTL_DS2_en_csv_v2_267553", "data_clean/world_bank_total_population.csv")
+
+
+```
+## Removing Rows not Pertaining to Countries
+```{r}
+```
+## Analyzing Country-Level Data
+```{r}
+```

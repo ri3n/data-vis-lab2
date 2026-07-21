@@ -1,0 +1,210 @@
+---
+title: "World Bank Data Analysis"
+format:
+  html:
+    embed-resources: true
+number-sections: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+# Task 1: Analyzing Country-Level Statistics on Gross National Expenditure
+
+## About the Data
+
+This analysis draws on three datasets, all sourced from the World Bank's World Development Indicators (WDI) portal.
+
+**Gross National Expenditure (`indicator.csv`)** contains annual GNE values for 266 countries and regional aggregates, spanning 1960 to 2025. GNE is defined as the sum of household final consumption expenditure, general government final consumption expenditure, and gross capital formation. Values are expressed in constant 2015 US dollars (inflation-adjusted), meaning figures across different years can be fairly compared without the distortion of price changes. The indicator code is `NE.DAB.TOTL.KD`. Data for 2025 is not yet available, and coverage thins out for earlier decades and smaller economies.
+
+**Total Population (`population.csv`)** follows the same structure — 266 rows and the same 1960 to 2025 year range — recording the total population for each country per year. The indicator code is `SP.POP.TOTL`. This dataset is used alongside GNE to compute per capita values, enabling a fairer comparison of economic output relative to population size.
+
+**Country Codes (`country_codes.csv`)** is a reference table containing 218 real countries with three columns: `country_name_en` (English name), `country_code` (ISO 3-letter code, e.g. `SGP` for Singapore), and `un_subregion` (UN geographic subregion, e.g. South-eastern Asia, Sub-Saharan Africa). This dataset serves as the filter to remove World Bank regional aggregates — such as "Africa Eastern and Southern" — from the GNE and population tables, ensuring the analysis only covers country-level data.
+
+## Cleaning the Data
+
+```{r}
+library(tidyverse)
+library(gt)
+```
+
+Function for cleaning up csv
+
+```{r}
+clean_up_wb_csv <- function(in_file_name, out_file_name) {
+
+  raw_lines <- readLines(in_file_name)
+
+  data_start <- which(str_detect(raw_lines, "^\"Country Name\""))[1]
+
+  cleaned_lines <- raw_lines[data_start:length(raw_lines)]
+
+  writeLines(cleaned_lines, out_file_name)
+}
+```
+
+Clean up given data files
+
+```{r}
+clean_up_wb_csv(
+  "world_bank_total_population/API_SP.POP.TOTL_DS2_en_csv_v2_267553.csv",
+  "population.csv"
+)
+
+clean_up_wb_csv(
+  "indicator_data_folder/API_NE.DAB.TOTL.KD_DS2_en_csv_v2_9332/API_NE.DAB.TOTL.KD_DS2_en_csv_v2_9332.csv",
+  "indicator.csv"
+)
+```
+
+## Importing the Data to RStudio
+
+```{r}
+population <- read_csv("population.csv")
+
+indicator <- read_csv("indicator.csv")
+
+country_codes <- read_csv("country_codes.csv")
+```
+
+## Remove rows not pertaining to countries
+
+```{r}
+
+population <- population |>
+  filter(`Country Code` %in% country_codes$country_code)
+
+indicator <- indicator |>
+  filter(`Country Code` %in% country_codes$country_code)
+
+```
+
+### Check number of rows in population and indicator after removing
+
+```{r}
+nrow(population)
+nrow(indicator)
+```
+
+### Building a Combined Table for most recent year
+
+#### 1. Finding the most recent year with data
+
+```{r}
+year_cols <- names(indicator) |>
+  str_subset("^\\d{4}$")
+ 
+most_recent_year <- year_cols |>
+  rev() |>
+  keep(~ any(!is.na(indicator[[.x]]))) |>
+  head(1)
+ 
+cat("Most recent year with indicator data:", most_recent_year, "\n")
+```
+
+#### 2, Build Combined Table
+
+```{r}
+# Pull just the single most-recent-year column from each wide table,
+# then join them side by side using "Country Code" as the shared key.
+# We also drop any row where either value is missing.
+indicator_recent <- indicator |>
+  select(`Country Name`, `Country Code`, indicator_value = all_of(most_recent_year))
+
+pop_recent <- population |>
+  select(`Country Code`, population = all_of(most_recent_year))
+
+combined <- indicator_recent |>
+  inner_join(pop_recent, by = "Country Code") |>
+  filter(!is.na(indicator_value), !is.na(population)) |>
+  rename(
+    country_name = `Country Name`,
+    country_code = `Country Code`
+  )
+```
+
+# Analyzing Country-Level Data
+
+## Task 1: Top 10 Countries by GNE
+
+```{r}
+# dense_rank() correctly handles ties: two countries sharing rank 3 both get
+# rank 3, and the next country gets rank 4. This ensures that if countries
+# tie exactly at position 10, all of them are included in the output.
+top10_indicator <- combined |>
+  mutate(
+    rank_by_population = dense_rank(desc(population)),
+    rank_by_indicator  = dense_rank(desc(indicator_value))
+  ) |>
+  filter(rank_by_indicator <= 10) |>
+  arrange(desc(indicator_value), desc(population)) |>
+  select(
+    country_name,
+    country_code,
+    population,
+    indicator_value,
+    rank_by_population,
+    rank_by_indicator
+  )
+ 
+library(gt)
+gt(top10_indicator)
+```
+
+## Task 2: Top 10 Countries by GNE Per Capita
+
+```{r}
+# "Per capita" = per person = total GNE divided by population.
+# Built from top10_indicator as the assignment specifies ("based on the
+# previous result"), so we re-rank those same countries by per-capita value.
+top10_per_capita <- top10_indicator |>
+  mutate(
+    indicator_per_capita = indicator_value / population,
+    rank_per_capita      = dense_rank(desc(indicator_per_capita))
+  ) |>
+  arrange(desc(indicator_per_capita)) |>
+  select(country_name, country_code, indicator_per_capita, rank_per_capita)
+ 
+gt(top10_per_capita)
+```
+
+## Task 3: Summary of Key Findings
+
+The first ranking table, which ranks countries by total GNE, is heavily influenced by population size — large economies such as the United States, China, and India dominate the top positions simply because they have more people consuming and investing. This means the top countries by total GNE are largely unsurprising, as they are the same well-known large economies one would expect. However, total GNE alone does not tell the full story of a country's economic output relative to its size.
+
+The second ranking table, which ranks the same countries by GNE per capita, reveals a very different picture. Smaller but wealthier nations rise to the top, while populous countries like India and China drop significantly in rank. This difference highlights that a high total GNE does not necessarily mean a high standard of living for the average citizen — a country can spend a lot in aggregate simply because it has a very large population. The divergence between the two rankings therefore reflects the distinction between the overall size of an economy and the prosperity experienced at the individual level, suggesting that policymakers should consider both measures when evaluating economic performance.
+
+## Task 4: Large Population, Low Per Capita GNE Countries
+
+```{r}
+# The median splits all countries into a top half and bottom half.
+# We want countries that are in the TOP half for population but the
+# BOTTOM half for GNE per capita — "big but resource-thin" countries.
+# This uses the full combined table (all countries), not just the top 10.
+all_countries <- combined |>
+  mutate(indicator_per_capita = indicator_value / population)
+ 
+median_population       <- median(all_countries$population,          na.rm = TRUE)
+median_indicator_percap <- median(all_countries$indicator_per_capita, na.rm = TRUE)
+ 
+cat("Global median population:     ", format(round(median_population),       big.mark = ","), "\n")
+cat("Global median GNE per capita: $", format(round(median_indicator_percap), big.mark = ","), "\n")
+ 
+big_low <- all_countries |>
+  filter(
+    population           > median_population,
+    indicator_per_capita < median_indicator_percap
+  ) |>
+  arrange(desc(population)) |>
+  select(country_name, country_code, population, indicator_per_capita)
+ 
+cat("Total countries with above-median population but below-median GNE per capita:",
+    nrow(big_low), "\n")
+ 
+gt(head(big_low, 10))
+```
+
+## Task 5: Result Discussion
+
+The countries identified in Task 4 — those with above-median population but below-median GNE per capita — are notably absent from both ranking tables above. This is telling: these are large countries that neither appear in the top 10 by total spending nor by spending per person. While their sheer population size puts them above the global median headcount, their low per capita GNE suggests that economic output is not keeping pace with population growth. This "large country but low per capita" phenomenon implies structural challenges such as underdeveloped industries, limited access to capital, or inefficient resource distribution — where wealth is not being generated or spread proportionally across the population. Compared to the top 10 in Task 1, these countries have similarly large populations but a fraction of the economic activity. Compared to Task 2, they sit at the opposite end of the per capita spectrum entirely. This pattern is commonly observed in developing economies across South Asia and Sub-Saharan Africa, where rapid population growth has outpaced economic development, making it harder for governments to invest adequately in infrastructure, education, and healthcare on a per-person basis.

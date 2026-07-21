@@ -1,0 +1,182 @@
+---
+title: "Week 10 `geom`"
+author: Your Name
+
+format:
+  html:
+    embed-resources: true
+---
+
+```{r}
+library(ggplot2)
+library(tidyverse)
+library(dplyr)
+library(viridis)
+```
+
+```{r}
+gss_cat_labs <- function(...) {
+  ggplot2::labs(
+    x = "Count",
+    y = "Response",
+    title = "Party Affiliation of GSS Participants",
+    caption = 'Source: R package "forcats"',
+    ...
+  )
+}
+ggplot(gss_cat, aes(y = partyid)) +
+  geom_bar() +
+  gss_cat_labs()
+```
+
+```{r}
+ggplot(gss_cat, aes(y = partyid)) +
+  geom_bar(fill = NA, color = "darkblue") +
+  gss_cat_labs()
+```
+```{r}
+ggplot(gss_cat, aes(y = partyid, fill = marital)) +
+  geom_bar(color = "darkblue") +
+  gss_cat_labs(fill = "Marital status")
+```
+
+```{r}
+str_c("`volcano` class is: ", class(volcano)[1], 
+      ", dimension is: ", dim(volcano)[1], " by ", dim(volcano)[2])
+```
+```{r}
+volcano[1:7, 1:7]
+```
+```{r}
+volcano_dfr <-
+  tibble(elevation = c(volcano)) |>
+  mutate(
+    x = 10 * (row_number() - 1) %% nrow(volcano), # modulo
+    y = 10 * (row_number() - 1) %/% nrow(volcano) # integer division
+  )
+str(volcano_dfr)
+```
+```{r}
+volcano_labs <- function(...) {
+  ggplot2::labs(
+    x = "x (m)",
+    y = "y (m)",
+    caption = 'R data set "volcano"',
+    ...
+  )}
+```
+```{r}
+ggplot(volcano_dfr, aes(x, y, fill = elevation)) + geom_tile() +
+  volcano_labs(fill = "Elevation (m)", title = "Heatmap of Maunga Whau")
+```
+```{r}
+ggplot(volcano_dfr, aes(x, y, fill = elevation)) + geom_raster() +
+  volcano_labs(fill = "Elevation (m)", title = "Heatmap of Maunga Whau")
+```
+```{r}
+ggplot(volcano_dfr, aes(x, y, z = elevation)) +
+  geom_contour() +
+  volcano_labs(title = "Basic Contours")
+```
+```{r}
+ggplot(volcano_dfr, aes(x, y, z = elevation, color = after_stat(level))) +
+  geom_contour() +
+  volcano_labs(color = "Elevation (m)", title = "Contour Lines")
+```
+```{r}
+ggplot(volcano_dfr, aes(x, y, z = elevation)) +
+  geom_contour_filled() +
+  volcano_labs(fill = "Elevation (m)", title = "Filled Contours")
+```
+```{r}
+ggplot(volcano_dfr, aes(x, y, z = elevation)) +
+  geom_contour_filled(bins = 12) + # how many colors (bins) and setting fill
+  scale_fill_viridis(discrete = TRUE, option = "B") + # Color
+  geom_contour(color = "white", bins = 12) + # Outline for number of bins
+  metR::geom_label_contour() + 
+  volcano_labs(fill = "Elevation (m)", title = "Heatmap of Maunga Whau")
+```
+```{r}
+dfr <- tribble(
+  ~x, ~y, ~word,
+  0, -1, "1. This",
+  2, 2, "2. That",
+  1, -2, "3. Other",
+  3, 0, "4. Same",
+  1, 1, "5. Different"
+)
+gg <- ggplot(
+  dfr, 
+  aes(x, y, label = word)
+)
+gg + geom_text()
+```
+```{r}
+gg + 
+  geom_label() + 
+  xlim(-5, 3.3) + 
+  ylim(-5, 2.2)
+```
+```{r}
+mutate(dfr,
+  class = c("i", "i", "ii", "ii", "iii"),
+  extent = c(1, 2, 2, 3, 3),
+  font_family = c("serif", "sans", "serif", "mono", "mono")
+) |>
+  ggplot(aes(x, y, label = word, color = class, size = extent, family = font_family)) +
+  xlim(-1, 4) +
+  ylim(-2.5, 2.5) + 
+  geom_label() +
+  scale_size_area()
+```
+
+```{r}
+count(gss_cat, partyid, marital, name = "count") |>
+  ggplot(aes(marital, count, fill = partyid, label = count)) +
+  geom_col(position = "dodge") +
+  gss_cat_labs() + labs(x = NULL, y = NULL) + guides(y = "none") + ylim(0, 2000) +
+  geom_text(aes(color = partyid), hjust = 0.5, vjust = 0, size = 4, position = position_dodge(width = 0.9)) 
+```
+
+```{r}
+library(ggpp)
+count(gss_cat, partyid, marital, name = "count") |>
+  ggplot(aes(marital, count, fill = partyid, label = count)) +
+  geom_col(position = "dodge") +
+  gss_cat_labs() + labs(x = NULL, y = NULL) + guides(y = "none") + ylim(0, 2000) +
+  geom_text(aes(color = partyid), hjust = 0, vjust = 0.5, size = 4, angle = 90, position = ggpp::position_dodgenudge(width = 0.9, y = 20))
+
+```
+
+
+```{r}
+michelle <-
+  storms |>
+  filter(name == "Michelle") |>
+  mutate(observation = row_number()) |>
+  select(wind, pressure, observation)
+gg_michelle <-
+  ggplot(michelle, aes(
+    pressure, 
+    wind, 
+    color = observation, 
+    label = observation
+  )) +
+  geom_point(alpha = 0.5) +
+  geom_line(color = "black") +
+  labs(
+    x = "Pressure (hPa)",
+    y = "Wind (knots)",
+    title = "Hurricane Michelle",
+    caption = "Source: National Hurricane Center"
+  ) +
+  guides(color = "none")
+
+gg_michelle + 
+  geom_text()
+```
+```{r}
+library(ggrepel)
+gg_michelle + 
+  geom_text_repel(max.overlaps = 50)
+```

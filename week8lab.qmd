@@ -1,0 +1,294 @@
+---
+title: "week8lab"
+format: html
+---
+
+# Week 8 Lab
+
+Libraries used:
+```{r}
+library(tidyverse)      # data wrangling and visualisation
+library(dplyr)
+library(e1071)          # naiveBayes()
+library(kernlab)        # Case 1 dataset (spam)
+library(palmerpenguins) # Case 2 dataset
+library(pROC)           # ROC curves and AUC (Cases 1 and 3)
+library(gt)             # formatted tables
+```
+
+Setting up
+```{r}
+set_theme <- function(...) {
+  theme(panel.background = element_rect(fill = "ivory", colour = "black")) +
+  theme(panel.grid.major = element_line(linetype = "dashed", color = "gray70"))
+}
+```
+
+# Case 1: Spam email detection, Multivariate Bernoulli Naive Bayes in the Wild
+Importing data & binarisation
+```{r}
+data("spam", package = "kernlab")
+cat("Dimensions:", dim(spam), "\n")
+```
+```{r}
+table(spam$type)
+```
+```{r}
+spam_binary <- spam |>
+  mutate(
+    across(-type, \(x) factor(if_else(x > 0, "present", "absent"),
+                              levels = c("absent", "present")))
+  )
+
+# Confirm binarisation on two contrasting words
+spam_binary[1:4, c("free", "meeting", "type")]
+```
+Train/test split
+```{r}
+set.seed(7)
+n_s      <- nrow(spam_binary)
+spam_idx <- sample(n_s, round(0.75 * n_s))
+s_train  <- spam_binary[spam_idx, ]
+s_test   <- spam_binary[-spam_idx, ]
+
+cat("Training rows:", nrow(s_train), " | Test rows:", nrow(s_test), "\n")
+```
+Exploratory Analysis - which words discriminate?
+```{r}
+word_cols <- names(spam)[!str_starts(names(spam), "char") &
+                          !str_starts(names(spam), "capital") &
+                          names(spam) != "type"]
+
+spam |>
+  select(type, all_of(word_cols)) |>
+  pivot_longer(-type, names_to = "word", values_to = "freq") |>
+  mutate(present = freq > 0) |>
+  group_by(type, word) |>
+  summarise(pct_present = mean(present), .groups = "drop") |>
+  pivot_wider(names_from = type, values_from = pct_present) |>
+  mutate(ratio = spam / nonspam) |>
+  slice_max(ratio, n = 15) |>
+  ggplot(aes(x = reorder(word, ratio), y = ratio)) +
+  geom_col(fill = "tomato", alpha = 0.85) +
+  coord_flip() +
+  labs(title = "Top 15 Words by Spam-to-Nonspam Presence Ratio",
+       x = NULL, y = "P(present | spam) / P(present | nonspam)") +
+  set_theme()
+```
+Model fitting
+```{r}
+m_spam <- naiveBayes(type ~ ., data = s_train, laplace = 1)
+
+pred_spam <- predict(m_spam, s_test)
+acc_spam  <- mean(pred_spam == s_test$type)
+cat("Test accuracy:", round(acc_spam, 3), "\n")
+```
+Conditional probability for keywords
+```{r}
+key_words <- c("free", "money", "your", "hp", "meeting", "re")
+
+map_dfr(key_words, function(feat) {
+  tbl <- m_spam$tables[[feat]]
+  tibble(
+    Word                    = feat,
+    `P(present | spam)`    = tbl["spam",    "present"],
+    `P(present | nonspam)` = tbl["nonspam", "present"]
+  )
+}) |>
+  gt() |>
+  fmt_number(columns = 2:3, decimals = 3) |>
+  tab_spanner(label = "Bernoulli Likelihood", columns = 2:3) |>
+  tab_options(table.width = pct(80), column_labels.background.color = "lightblue")
+```
+Confusion matrix
+```{r}
+conf_spam <- table(Predicted = pred_spam, Actual = s_test$type)
+print(conf_spam)
+```
+```{r}
+conf_spam |>
+  as_tibble() |>
+  ggplot(aes(x = Actual, y = Predicted, fill = n)) +
+  geom_tile(color = "white") +
+  geom_text(aes(label = n), size = 7) +
+  scale_fill_gradient(low = "white", high = "tomato") +
+  labs(title = "Confusion Matrix: Spam Detection", fill = "Count") +
+  set_theme()
+```
+Precision, F1 Score & Recall for spam class
+```{r}
+tp <- conf_spam["spam",    "spam"]
+fp <- conf_spam["spam",    "nonspam"]
+fn <- conf_spam["nonspam", "spam"]
+
+precision <- tp / (tp + fp)
+recall    <- tp / (tp + fn)
+f1        <- 2 * precision * recall / (precision + recall)
+
+cat(sprintf("Precision : %.3f\nRecall    : %.3f\nF1 Score  : %.3f\n",
+            precision, recall, f1))
+```
+ROC Curve and AUC
+```{r}
+prob_spam <- predict(m_spam, s_test, type = "raw")[, "spam"]
+roc_spam  <- roc(response  = s_test$type,
+                 predictor = prob_spam,
+                 levels    = c("nonspam", "spam"),
+                 quiet     = TRUE)
+auc_spam  <- as.numeric(auc(roc_spam))
+cat("AUC:", round(auc_spam, 3), "\n")
+```
+```{r}
+ggroc(roc_spam, color = "tomato", linewidth = 1, legacy.axes = TRUE) +
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "gray50") +
+  labs(title    = "ROC Curve: Spam Detection",
+       subtitle = paste0("AUC = ", round(auc_spam, 3)),
+       x = "False Positive Rate (1 - Specificity)",
+       y = "True Positive Rate (Sensitivity)") +
+  set_theme()
+```
+# Case 2: Palmer Penguins, Species Classification
+
+Data
+```{r}
+data("penguins", package = "palmerpenguins")
+glimpse(penguins)
+```
+Drop missing values
+```{r}
+penguins_clean <- penguins |>
+  drop_na() |>
+  mutate(sex = factor(sex))   # ensure sex is a factor (treated as Bernoulli by naiveBayes())
+
+cat("Rows after dropping NA:", nrow(penguins_clean), "\n")
+```
+```{r}
+table(penguins_clean$species)
+```
+Exploratory Visualisation
+```{r}
+penguins_clean |>
+  ggplot(aes(x = bill_length_mm, y = flipper_length_mm,
+             color = species, shape = species)) +
+  geom_point(size = 2.5, alpha = 0.8) +
+  scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
+  labs(title = "Bill Length vs Flipper Length by Species",
+       x = "Bill Length (mm)", y = "Flipper Length (mm)",
+       color = "Species", shape = "Species") +
+  set_theme()
+```
+Gaussisan Naive Bayes: Continuous Features only
+```{r}
+set.seed(1)
+n_p        <- nrow(penguins_clean)
+train_idx  <- sample(n_p, round(0.75 * n_p))
+p_train    <- penguins_clean[train_idx, ]
+p_test     <- penguins_clean[-train_idx, ]
+
+m_pg1 <- naiveBayes(
+  species ~ bill_length_mm + bill_depth_mm + flipper_length_mm + body_mass_g,
+  data = p_train, laplace = 1
+)
+
+pred_pg1 <- predict(m_pg1, p_test)
+acc_pg1  <- mean(pred_pg1 == p_test$species)
+cat("Test accuracy (Gaussian only):", round(acc_pg1, 3), "\n")
+```
+Mixed Naive Bayes: Adding island and sex
+```{r}
+m_pg2 <- naiveBayes(
+  species ~ bill_length_mm + bill_depth_mm + flipper_length_mm + body_mass_g +
+    island + sex,
+  data = p_train, laplace = 1
+)
+
+pred_pg2 <- predict(m_pg2, p_test)
+acc_pg2  <- mean(pred_pg2 == p_test$species)
+cat("Test accuracy (Gaussian + Multinomial + Bernoulli):", round(acc_pg2, 3), "\n")
+```
+Confusion Matrix and Per-Class Performance
+```{r}
+conf <- table(Predicted = pred_pg2, Actual = p_test$species)
+print(conf)
+```
+```{r}
+conf |>
+  as_tibble() |>
+  ggplot(aes(x = Actual, y = Predicted, fill = n)) +
+  geom_tile(color = "white") +
+  geom_text(aes(label = n), size = 6) +
+  scale_fill_gradient(low = "white", high = "steelblue") +
+  labs(title = "Confusion Matrix: Penguin Species (Mixed Naive Bayes)",
+       fill = "Count") +
+  set_theme()
+```
+```{r}
+tibble(
+  Species   = colnames(conf),
+  Recall    = diag(conf) / colSums(conf),
+  Precision = diag(conf) / rowSums(conf),
+  F1        = 2 * Recall * Precision / (Recall + Precision)
+) |>
+  gt() |>
+  fmt_number(columns = 2:4, decimals = 3) |>
+  tab_options(table.width = pct(75), column_labels.background.color = "lightblue")
+```
+Case 3: NYC Restaurant Inspections - Pass or Fail?
+
+```{r}
+nyc_train <- read_csv(
+  "nyc_restaurant_train.csv",
+  show_col_types = FALSE
+) |>
+  mutate(
+    pass            = factor(pass, levels = c("Fail", "Pass")),
+    has_critical    = factor(has_critical),
+    has_pest        = factor(has_pest),
+    boro            = factor(boro),
+    cuisine_group   = factor(cuisine_group)
+  )
+
+nyc_test <- read_csv(
+  "nyc_restaurant_test.csv",
+  show_col_types = FALSE
+) |>
+  mutate(
+    pass            = factor(pass, levels = c("Fail", "Pass")),
+    has_critical    = factor(has_critical),
+    has_pest        = factor(has_pest),
+    boro            = factor(boro),
+    cuisine_group   = factor(cuisine_group)
+  )
+
+cat("Training rows:", nrow(nyc_train),
+    " | Test rows:", nrow(nyc_test), "\n")
+```
+```{r}
+table(nyc_train$pass)
+```
+Exploratory Visualizatoin
+```{r}
+nyc_train |>
+  ggplot(aes(x = n_violations, fill = pass)) +
+  geom_histogram(binwidth = 1, position = "dodge", alpha = 0.8) +
+  scale_fill_manual(values = c("Pass" = "steelblue", "Fail" = "tomato")) +
+  labs(title = "Violation Count by Inspection Outcome",
+       x = "Number of Violations", y = "Count", fill = "Outcome") +
+  set_theme()
+```
+Restaurants that pass (Grade A) tend to have fewer violations. This visual separation is what gives n_violations predictive power as a Gaussian feature.
+
+```{r}
+nyc_train |>
+  count(boro, pass) |>
+  group_by(boro) |>
+  mutate(pct = n / sum(n)) |>
+  filter(pass == "Pass") |>
+  ggplot(aes(x = reorder(boro, pct), y = pct, fill = boro)) +
+  geom_col(show.legend = FALSE) +
+  geom_text(aes(label = scales::percent(pct, accuracy = 1)), hjust = -0.1) +
+  coord_flip() +
+  scale_y_continuous(labels = scales::percent, limits = c(0, 1)) +
+  labs(title = "Pass Rate by Borough", x = NULL, y = "Pass Rate") +
+  set_theme()
+```

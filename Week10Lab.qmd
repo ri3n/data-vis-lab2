@@ -1,0 +1,327 @@
+---
+title: "Week10Lab"
+format: html
+---
+
+```{r}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+```
+
+```{r}
+library(tmap)
+class(World)
+```
+
+```{r}
+countries <- select(World, iso_a3, name)
+head(countries, 10)
+```
+
+```{r}
+class(countries)
+```
+
+```{r}
+library(sf)
+countries <- st_drop_geometry(countries)
+slice_head(countries, n = 10)
+```
+
+```{r}
+ggplot(World) + geom_sf()
+```
+aes = Aesthetic, geom_sf fillsl polygons with color
+```{r}
+ggplot(World, aes(fill = continent)) + geom_sf()
+```
+```{r}
+metro |> filter(name == "Singapore") |> st_coordinates()
+```
+Point
+```{r}
+metro |> st_geometry_type() |> head(6) # `factor` class
+```
+```{r}
+metro |> st_is("POINT") |> all()
+```
+```{r}
+ggplot() + geom_sf(data = World) + geom_sf(data = metro)
+```
+Line String Example
+```{r}
+World_rivers |> 
+  filter(name == "Ismailiya Canal") |>
+  st_coordinates()
+```
+```{r}
+# ggplot() +
+#   geom_sf(data = World, color = "grey") +
+#   geom_sf(data = World_rivers |> filter(name == 'Ismailiya Canal'), color = "navyblue")
+
+ggplot() +
+  geom_sf(data = World, color = "grey") +
+  geom_sf(data = World_rivers, color = "navyblue")
+```
+```{r}
+World_rivers |> st_geometry_type() |> head(6) # `factor` class
+```
+```{r}
+World_rivers |> st_is("LINESTRING") |> all()
+```
+MultiPolygon Example
+```{r}
+World |> filter(name == "Malaysia") |> st_geometry_type()
+```
+```{r}
+World |> filter(name == "Malaysia") |> st_is("MULTIPOLYGON")
+```
+```{r}
+World |> filter(name == "Malaysia") |>
+  ggplot() + geom_sf()
+```
+```{r}
+World |> filter(name == "South Africa") |>
+  ggplot() + geom_sf()
+``` 
+Importing Geospatial Data as `sf` objects
+```{r}
+sgp_pa <- read_sf("singapore_by_planning_area_since_1999.geojson")
+sgp_pa |> head(3)
+```
+```{r}
+ggplot(sgp_pa) + geom_sf()
+```
+```{r}
+sgp_pa_5 <- read_sf("singapore_by_planning_area_since_1999.geojson", type = 5)
+ggplot(sgp_pa_5) + geom_sf()
+```
+Repairing Invalid Geometries
+Self-intersecting polygon
+```{r}
+self_intersecting_pgon <-
+  rbind(c(0, 4), c(4, 1), c(4, 3), c(0, 0), c(0, 4)) |>
+  list() |> st_polygon() |> st_sfc()
+ggplot(self_intersecting_pgon) +
+  geom_sf(color = "red", linewidth = 3) +
+  geom_sf( # Add points to the plot
+    data = st_cast(self_intersecting_pgon, "POINT"),
+    size = 5,
+    shape = 16 # Filled circles, see ?points
+  )
+```
+```{r}
+valid_mpgon <- st_make_valid(self_intersecting_pgon)
+st_geometry_type(valid_mpgon)
+```
+```{r}
+st_coordinates(valid_mpgon)
+```
+```{r}
+ggplot(valid_mpgon) +
+  geom_sf(color = "red", linewidth = 3) +
+  geom_sf(
+    data = st_cast(valid_mpgon, "POINT"),
+    size = 5,
+    shape = 16
+  )
+```
+```{r}
+subzones <- read_sf("MasterPlan2019SubzoneBoundaryNoSeaGEOJSON.geojson")
+all(st_is_valid(subzones))
+```
+```{r}
+subzones <- st_make_valid(subzones)
+all(st_is_valid(subzones))
+```
+
+```{r}
+gg_subzones <- 
+  ggplot(subzones) + geom_sf()
+gg_subzones
+```
+Simplifying line strings and polygons
+```{r}
+library(mapview)
+npts(subzones)
+```
+```{r}
+library(rmapshaper)
+simplified <- ms_simplify(subzones)
+npts(simplified)
+```
+Before and After simplification
+```{r}
+gg_subzones
+ggplot(simplified) + geom_sf()
+```
+Map Projections
+```{r}
+st_crs(World, parameters = TRUE)[c("Name", "srid")]
+```
+```{r}
+gg_world <- ggplot(World) +
+  geom_sf() +
+  geom_sf(
+    aes(fill = name),
+    data = filter(World, name %in% c("Greenland", "Australia", "Russia"))
+  ) +
+  scale_fill_manual(values = c("Greenland" = "red", "Australia" = "blue", "Russia" = "green")) +
+  guides(fill = "none") +
+  theme(
+    panel.background = element_blank(),
+    panel.grid = element_line(color = "black"),
+    panel.ontop = TRUE
+  )
+gg_world + labs(title = "Equirectangular Projection")
+```
+```{r}
+gg_world + labs(title = "Equirectangular Projection")
+gg_world + coord_sf(crs = "ESRI:54035") + labs(title = "Equal Earth Projection")
+```
+Equal Area Projections
+```{r}
+earth <- st_polygon(
+  x = list(
+    cbind(c(rep(-180, 181), rep(180, 181), -180), c(-90:90, 90:-90, -90)))) |>
+  st_sfc() |> st_set_crs(4326) |> # Equirectangular projection
+  st_as_sf()
+gg_world_boundary <-
+  ggplot(World) +
+  geom_sf(data = earth, fill = "aliceblue") +
+  geom_sf() +
+  geom_sf(
+    aes(fill = name),
+    data = filter(World, name %in% c("Greenland", "Australia"))
+  ) +
+  scale_x_continuous(breaks = seq(-180, 180, by = 45)) +
+  scale_y_continuous(
+    breaks = c(-89.9, -45, 0, 45, 89.9) # Avoid singularities at +/-90
+  ) +
+  scale_fill_manual(values = c("Greenland" = "red", "Australia" = "blue")) +
+  guides(fill = "none") +
+  theme(
+    panel.background = element_blank(),
+    panel.grid = element_line(color = "black"),
+    panel.ontop = TRUE
+  )
+gg_world_boundary + labs(title = "Equirectangular Pojection")
+gg_world_boundary + coord_sf(crs = "ESRI:54017") + labs(title = "Behrmann Projection")
+gg_world_boundary + coord_sf(crs = "ESRI:54035") + labs(title = "Equal Earth Projection")
+gg_world_boundary + coord_sf(crs = "ESRI:54012") + labs(title = "Eckert IV Projection")
+gg_world_boundary + coord_sf(crs = "ESRI:54008") + labs(title = "Sinusoidal Projection")
+gg_world_boundary + coord_sf(crs = "ESRI:54009") + labs(title = "Mollweide Projection")
+```
+Chloropeth Maps
+```{r}
+atm <-
+  "API_FB.ATM.TOTL.P5_DS2_en_excel_v2_2342.xls" |>
+  readxl::read_xls(skip = 3) |>
+  select(
+    country = `Country Name`,
+    code = `Country Code`,
+    atm_2021 = `2021`
+  )
+world <-
+  World |>
+  left_join(atm, by = c("iso_a3" = "code")) |>
+  select(country, code = iso_a3, area, atm_2021)
+```
+Choosing a suitable palette - `fill`
+```{r}
+earth <- st_polygon(
+  x = list(
+    cbind(
+      c(rep(-180, 181), rep(180, 181), -180), c(-90:90, 90:-90, -90)
+    )
+  )
+) |>
+  st_sfc() |>
+  st_set_crs(4326) |> # Equirectangular projection
+  st_as_sf()
+
+gg_atm_2021 <-
+  ggplot() +
+  geom_sf(data = earth, fill = "lightblue1") +
+  geom_sf(aes(fill = atm_2021), data = world, color = "black") +
+  labs(
+    fill = NULL,
+    title = "Automated Teller Machines per 100,000 Adults in 2021"
+  ) +
+  coord_sf(crs = "ESRI:54035") +
+  theme_void() +
+  theme(
+    legend.margin = margin(5, 0, 0, 0), # Increase margin above legend
+    legend.key.width = unit(1.25, "cm"),
+    legend.frame = element_rect(), # Add a frame around the colorbar
+    legend.position = "top",
+    plot.title = element_text(face = "bold", hjust = 0.5),
+  )
+gg_atm_2021
+```
+scale_fill_fermenter function: accesses palettes from ColorBrewer website, suitable for ordinal and quantitative data
+use scale_fill_brewer instead for nominal data
+```{r}
+gg_atm_2021 <-
+  gg_atm_2021 +
+  scale_fill_fermenter(
+    breaks = scales::breaks_log(n = 6),
+    palette = "Greens",
+    direction = 1,
+    na.value = "gray80"
+  )
+gg_atm_2021
+```
+Adding missing values
+```{r}
+# The fill color of this legend entry is set to the same color,
+# `gray80`, as the missing values in the map.
+
+# The `order` argument of the `guide_*()` functions is used to
+# shift the missing value from the start to the end of the legend.
+
+gg_atm_2021 <-
+  gg_atm_2021 +
+  aes(color = NA) +
+  guides(
+    fill = guide_colorsteps(order = 1),
+    color = guide_legend(override.aes = list(fill = "gray80"), order = 2)
+  )
+gg_atm_2021
+```
+```{r}
+# To fine-tune the legend, "colour" should be removed, 
+# and "NA" can be replaced by the more descriptive "Missing".
+
+gg_atm_2021 <-
+  gg_atm_2021 +
+  labs(color = NULL) +
+  scale_color_manual(labels = "Missing", values = "black") +
+  theme(legend.text.position = "bottom")
+gg_atm_2021
+```
+Adding labels
+```{r}
+gg_atm_2021 <-
+  gg_atm_2021 +
+  geom_sf_text(
+    aes(label = code),
+    data = filter(
+      world,
+      min_rank(desc(area)) <= 20 & (is.na(atm_2021) | atm_2021 <= 30)
+    ),
+    color = "black",
+    size = 1.7
+  ) +
+  geom_sf_text(
+    aes(label = code),
+    data = filter(
+      world,
+      min_rank(desc(area)) <= 20 & atm_2021 > 30
+    ),
+    color = "white",
+    size = 1.7
+  )
+gg_atm_2021
+```

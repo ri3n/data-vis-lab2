@@ -1,0 +1,489 @@
+---
+title: "week8"
+format: html
+---
+
+Task: predict purchased 
+
+Setting up
+1. Library
+
+```{r}
+library(tidyverse)
+library(dplyr)
+# Library for naives bayes calculation
+library(e1071)
+library(ggplot2)
+```
+
+2. Import dataset
+
+```{r}
+read_shopping <- function(path) {
+read_csv(path, show_col_types = FALSE) |>
+  mutate(
+    is_member        = factor(is_member,        levels = c("No", "Yes")),
+    product_category = factor(product_category, levels = c("Electronics", "Beauty", "Clothing", "Food")),
+    purchased        = factor(purchased,        levels = c("No", "Yes"))
+  )}
+
+train <- read_shopping("shopping_train_test/shopping_train.csv")
+test  <- read_shopping("shopping_train_test/shopping_test.csv")
+```
+
+# 1. Using is_member (bernoulli feature)
+
+## Hypothesis: members are more likely to buy than non-members
+
+```{r}
+train |> 
+  count(is_member) |> 
+  mutate(pct = n / sum(n))
+```
+
+Count purchased
+
+```{r}
+train |> 
+  count(purchased) |> 
+  mutate(pct = n / sum(n))
+```
+
+Calculate purchased givene is_member
+
+```{r}
+train |>
+  count(purchased, is_member) |>
+  group_by(purchased) |>
+  mutate(pct = round(n / sum(n), 4))
+```
+
+Result: every member is predicted to buy (x = Y), every non-member is predicted not to buy (x = N) Verify with R:
+
+```{r}
+# `laplace` is to avoid zero probability, set to 0 as there are no zero counts
+m1 <- e1071::naiveBayes(purchased ~ is_member, data = train, laplace = 0) 
+
+pred_train <- predict(m1, train)
+pred_test  <- predict(m1, test)
+cat("Training accuracy:", round(mean(pred_train == train$purchased), 3), "\n")
+```
+
+```{r}
+cat("Test accuracy:    ", round(mean(pred_test  == test$purchased),  3))
+```
+
+Result and Evaluation
+False positive and false negative on test set:
+
+```{r}
+result <- tibble(predicted = pred_test, actual = test$purchased)
+FP <- result |> filter(predicted == "Yes", actual == "No") |> nrow()
+FN <- result |> filter(predicted == "No",  actual == "Yes") |> nrow()
+cat("FP (Predicted Yes, Actual No):", FP, "\n")
+```
+
+```{r}
+cat("FN (Predicted No,  Actual Yes):", FN)
+```
+
+```{r}
+predict(m1,
+newdata = tibble(
+  is_member = factor(c("No", "Yes"), levels = c("No", "Yes"))),
+type = "raw") |>
+as_tibble() |>
+mutate(is_member = c("No", "Yes"), .before = 1) |>
+rename(`P(No|x)` = No, `P(Yes|x)` = Yes) |>
+gt() |>
+set_table() |>
+fmt_number(columns = 2:3, decimals = 3)
+```
+
+# 2. Using product_category (categorical feature) 
+
+## Hypothesis: product category reveals purchase intent. For example, food is an impulse buy, while electronics requires research and comparison, so fewer browsers complete the purchase.
+
+Work out probability of buying from different products (P(x2))
+```{r}
+train |>
+  count(product_category) |>
+  mutate(
+    pct = round(n/sum(n), 3))
+```
+Work out probability of purchased given product category
+```{r}
+train |>
+  count(
+    purchased, 
+    product_category) |>
+  group_by(purchased) |>
+  mutate(
+    pct=round(n/sum(n),3)) |>
+  select(-n)
+```
+Compute the test statistic for all 8 combinations of purchased and product category 
+```{r}
+p_x1_y <- tibble(
+  is_member = c("Yes", "No"),
+  p_x1_yY  = c(0.665, 0.335),
+  p_x1_yN  = c(0.328, 0.672))
+
+p_x2_y <- train |>
+  count(purchased, product_category) |> group_by(purchased) |>
+  mutate(p = n / sum(n)) |> select(-n) |> ungroup() |>
+  pivot_wider(names_from = purchased, values_from = p) |>
+  rename(p_x2_yY = Yes, p_x2_yN = No)
+
+expand_grid(is_member = c("Yes", "No"),
+  product_category = c("Electronics", "Beauty", "Clothing", "Food")) |>
+  left_join(p_x1_y, by = "is_member") |>
+  left_join(p_x2_y, by = "product_category") |>
+  mutate(
+    f_Y  = round(0.376 * p_x1_yY * p_x2_yY, 4),
+    f_N  = round(0.624 * p_x1_yN * p_x2_yN, 4),
+    Decision = if_else(f_Y > f_N, "Yes", "No")) |>
+  select(x_1 = is_member, x_2 = product_category, f_Y, f_N, Decision) |> 
+  gt() |> cols_label(
+    x_1 = md("$x_1$ (`is_member`)"),
+    x_2 = md("$x_2$ (`product_category`)"),
+    f_Y = md("$f(y=\\text{Y})$"),
+    f_N = md("$f(y=\\text{N})$"),
+    Decision = md("$\\hat{y}$")) |>
+  tab_footnote(
+    footnote = md("$f(y=\\text{Y})+f(y=\\text{N})\\neq 1$ as they are unnormalized."),
+    locations = cells_column_labels(columns = c(f_Y, f_N))) |> 
+    set_table()
+```
+
+Result and Evaluation
+1. Calculate accuracy, FP,FN from training data
+```{r}
+result2_train <- train |> 
+mutate(
+  predicted = case_when  (
+    is_member == "Yes" & product_category == "Electronics" ~ "No",
+    is_member == "Yes" & product_category == "Beauty" ~ "No",
+    is_member == "Yes" & product_category == "Clothing" ~ "Yes",
+    is_member == "Yes" & product_category == "Food" ~ "Yes",
+    is_member == "No" & product_category == "Electronics" ~ "No",
+    is_member == "No" & product_category == "Beauty" ~ "No",
+    is_member == "No" & product_category == "Clothing" ~ "No",
+    is_member == "No" & product_category == "Food" ~ "Yes"
+    )) |> select(actual = purchased, predicted)
+
+cat("Train accuracy:",
+round(mean(result2_train$predicted == result2_train$actual), 3))
+```
+```{r}
+cat("FPs train:",
+result2_train |> filter(predicted == "Yes", actual == "No") |> nrow())
+```
+```{r}
+cat("FNs train:",
+result2_train |> filter(predicted == "No",  actual == "Yes") |> nrow())
+```
+Verify result using Naive Bayes
+```{r}
+m2 <- naiveBayes(
+purchased ~ is_member + product_category, 
+data = train, 
+laplace = 0)
+
+pred_train  <- predict(m2, train)
+cat("Train accuracy: ", round(mean(pred_train  == train$purchased), 3))  
+```
+2. Calculate accuracy, FP,FN from test data
+```{r}
+result2_test <- test |> 
+mutate(
+  predicted = case_when  (
+    is_member == "Yes" & product_category == "Electronics" ~ "No",
+    is_member == "Yes" & product_category == "Beauty" ~ "No",
+    is_member == "Yes" & product_category == "Clothing" ~ "Yes",
+    is_member == "Yes" & product_category == "Food" ~ "Yes",
+    is_member == "No" & product_category == "Electronics" ~ "No",
+    is_member == "No" & product_category == "Beauty" ~ "No",
+    is_member == "No" & product_category == "Clothing" ~ "No",
+    is_member == "No" & product_category == "Food" ~ "Yes"
+    )) |> select(actual = purchased, predicted)
+
+cat("Test accuracy:",
+round(mean(result2_test$predicted == result2_test$actual), 3))
+```
+```{r}
+cat("FPs test:",
+result2_test |> filter(predicted == "Yes", actual == "No") |> nrow())
+```
+```{r}
+cat("FNs test:",
+result2_test |> filter(predicted == "No",  actual == "Yes") |> nrow())
+```
+Verify test result using Naive Bayes
+```{r}
+m2 <- naiveBayes(
+purchased ~ is_member + product_category, 
+data = train, 
+laplace = 0)
+
+pred_test  <- predict(m2, test)
+cat("Test accuracy: ", round(mean(pred_test  == test$purchased),  3))  
+```
+# 3. Using purchase_feature (Multinomial Feature)
+## Hypothesis: each past purchase is evidence of platform trust. More past purchases means stronger buying intent signal.
+
+Estimate probability with laplace smoothing
+```{r}
+train |>
+  group_by(purchased) |>
+  summarise(total_N = sum(purchase_history)) |>
+  mutate(
+    p_laplace = round((total_N + 1) / (sum(total_N) + 2), 4))
+```
+```{r}
+train |>
+  group_by(purchased) |>
+  summarise(
+    mean_N  = round(mean(purchase_history), 2),
+    total_N = sum(purchase_history))
+```
+```{r}
+p_prev <- train |>
+group_by(purchased) |>
+summarise(total_N = sum(purchase_history)) |>
+mutate(p = (total_N + 1) / (sum(total_N) + 2))
+
+p_prev_Y <- p_prev$p[p_prev$purchased == "Yes"]
+p_prev_N <- p_prev$p[p_prev$purchased == "No"]
+
+p_elec_y <- train |>
+count(purchased, product_category) |>
+group_by(purchased) |>
+mutate(p = n / sum(n)) |>
+filter(product_category == "Electronics")
+
+p_elec_Y <- p_elec_y$p[p_elec_y$purchased == "Yes"]
+p_elec_N <- p_elec_y$p[p_elec_y$purchased == "No"]
+
+tibble(C = c(0, seq(10))) |>
+mutate(
+  f_Y = 0.376 * 0.665 * p_elec_Y * p_prev_Y^C,
+  f_N = 0.624 * 0.328 * p_elec_N * p_prev_N^C,
+  Decision = if_else(f_Y > f_N, "Yes", "No")) |> gt() |>
+cols_label(
+  C        = md("$C$"),
+  f_Y      = md("$f(y=\\text{Y})$"),
+  f_N      = md("$f(y=\\text{N})$"),
+  Decision = md("$\\hat{y}$")) |>
+fmt_scientific(columns = c(f_Y, f_N)) |> set_table()
+```
+Results & Evaluation
+```{r}
+p_x1_y <- tibble(
+is_member = c("Yes", "No"),
+p_x1_yY   = c(0.665, 0.335),
+p_x1_yN   = c(0.328, 0.672))
+
+p_x2_y <- train |>
+count(purchased, product_category) |>
+group_by(purchased) |>
+mutate(p = n / sum(n)) |>
+select(-n) |> ungroup() |>
+pivot_wider(names_from = purchased, values_from = p) |>
+rename(p_x2_yY = Yes, p_x2_yN = No)
+
+pred3_train <- train |>
+left_join(p_x1_y, by = "is_member") |>
+left_join(p_x2_y, by = "product_category") |>
+mutate(
+  f_Y = 0.376 * p_x1_yY * p_x2_yY * p_prev_Y^purchase_history,
+  f_N = 0.624 * p_x1_yN * p_x2_yN * p_prev_N^purchase_history,
+  predicted = if_else(f_Y > f_N, "Yes", "No"))
+
+cat("Train accuracy:",
+round(mean(pred3_train$predicted == train$purchased), 3))
+```
+```{r}
+cat("FPs train:",
+pred3_train |> filter(predicted == "Yes", purchased == "No") |> nrow())
+```
+```{r}
+cat("FNs train:",
+pred3_train |> filter(predicted == "No",  purchased == "Yes") |> nrow())
+```
+```{r}
+pred3_test <- test |>
+left_join(p_x1_y, by = "is_member") |>
+left_join(p_x2_y, by = "product_category") |>
+mutate(
+  f_Y = 0.376 * p_x1_yY * p_x2_yY * p_prev_Y^purchase_history,
+  f_N = 0.624 * p_x1_yN * p_x2_yN * p_prev_N^purchase_history,
+  predicted = if_else(f_Y > f_N, "Yes", "No"))
+
+cat("Test accuracy:",
+round(mean(pred3_test$predicted == test$purchased), 3))
+```
+```{r}
+cat("FPs test:",
+pred3_test |> filter(predicted == "Yes", purchased == "No") |> nrow())
+```
+```{r}
+cat("FNs test:",
+pred3_test |> filter(predicted == "No",  purchased == "Yes") |> nrow())
+```
+Using session_duration_min (Gaussian Feature)
+```{r}
+dur_stats <- train |>
+  group_by(purchased) |>
+  summarise(
+    mu_hat    = round(mean(session_duration_min), 3),
+    sigma_hat = round(sd(session_duration_min),   3))
+
+mu_Y    <- mean(train$session_duration_min[train$purchased == "Yes"])
+mu_N    <- mean(train$session_duration_min[train$purchased == "No"])
+sigma_Y <- sd(train$session_duration_min[train$purchased == "Yes"])
+sigma_N <- sd(train$session_duration_min[train$purchased == "No"])
+
+dur_stats |>
+  gt() |>
+  cols_label(
+    purchased = md("Class"),
+    mu_hat    = md("$\\hat{\\mu}_y$"),
+    sigma_hat = md("$\\hat{\\sigma}_y$")) |>
+  set_table() |>
+  fmt_number(columns = 2:3, decimals = 3)
+```
+```{r}
+p_cloth_y <- train |>
+count(purchased, product_category) |>
+group_by(purchased) |>
+mutate(p = n / sum(n)) |>
+filter(product_category == "Clothing")
+
+p_cloth_Y <- p_cloth_y$p[p_cloth_y$purchased == "Yes"]
+p_cloth_N <- p_cloth_y$p[p_cloth_y$purchased == "No"]
+
+tibble(x4 = c(1, 2, 3, 5, 8, 12, 15, 20)) |>
+mutate(
+  f_Y = 0.376 * 0.665 * p_cloth_Y * p_prev_Y^4 *
+          dnorm(x4, mu_Y, sigma_Y),
+  f_N = 0.624 * 0.328 * p_cloth_N * p_prev_N^4 *
+          dnorm(x4, mu_N, sigma_N),
+  Decision = if_else(f_Y > f_N, "Yes", "No")) |>
+gt() |>
+cols_label(
+  x4       = md("$x_4$ (min)"),
+  f_Y      = md("$f(y=\\text{Y})$"),
+  f_N      = md("$f(y=\\text{N})$"),
+  Decision = md("$\\hat{y}$")) |>
+fmt_scientific(columns = c(f_Y, f_N)) |>
+set_table()
+```
+Result & Evaluation
+Training data accuracy, FP, FN
+```{r}
+pred4_train <- train |>
+left_join(p_x1_y, by = "is_member") |>
+left_join(p_x2_y, by = "product_category") |>
+mutate(
+  p_x4_Y = dnorm(session_duration_min, mu_Y, sigma_Y),
+  p_x4_N = dnorm(session_duration_min, mu_N, sigma_N),
+  f_Y = 0.376 * p_x1_yY * p_x2_yY * p_prev_Y^purchase_history * p_x4_Y,
+  f_N = 0.624 * p_x1_yN * p_x2_yN * p_prev_N^purchase_history * p_x4_N,
+  predicted = if_else(f_Y > f_N, "Yes", "No"))
+
+cat("Train accuracy:",
+round(mean(pred4_train$predicted == train$purchased), 3))
+```
+```{r}
+cat("FPs train:",
+pred4_train |> filter(predicted == "Yes", purchased == "No") |> nrow())
+```
+```{r}
+cat("FNs train:",
+pred4_train |> filter(predicted == "No",  purchased == "Yes") |> nrow())
+```
+Testing data accuracy, FP, FN
+```{r}
+pred4_test <- test |>
+left_join(p_x1_y, by = "is_member") |>
+left_join(p_x2_y, by = "product_category") |>
+mutate(
+  p_x4_Y = dnorm(session_duration_min, mu_Y, sigma_Y),
+  p_x4_N = dnorm(session_duration_min, mu_N, sigma_N),
+  f_Y = 0.376 * p_x1_yY * p_x2_yY * p_prev_Y^purchase_history * p_x4_Y,
+  f_N = 0.624 * p_x1_yN * p_x2_yN * p_prev_N^purchase_history * p_x4_N,
+  predicted = if_else(f_Y > f_N, "Yes", "No"))
+
+cat("Test accuracy:",
+round(mean(pred4_test$predicted == test$purchased), 3))
+```
+```{r}
+cat("FPs test:",
+pred4_test |> filter(predicted == "Yes", purchased == "No") |> nrow())
+```
+```{r}
+cat("FNs test:",
+pred4_test |> filter(predicted == "No",  purchased == "Yes") |> nrow())
+```
+Last: Combined features 1,2, and 4
+Calculate accuracy, FP, FN from training data
+```{r}
+pred124_train <- train |>
+left_join(p_x1_y, by = "is_member") |>
+left_join(p_x2_y, by = "product_category") |>
+mutate(
+  p_x4_Y = dnorm(session_duration_min, mu_Y, sigma_Y),
+  p_x4_N = dnorm(session_duration_min, mu_N, sigma_N),
+  f_Y = 0.376 * p_x1_yY * p_x2_yY * p_x4_Y,
+  f_N = 0.624 * p_x1_yN * p_x2_yN * p_x4_N,
+  predicted = if_else(f_Y > f_N, "Yes", "No"))
+
+cat("Train accuracy:",
+round(mean(pred124_train$predicted == train$purchased), 3))
+```
+```{r}
+cat("FPs train:",
+pred124_train |> filter(predicted == "Yes", purchased == "No") |> nrow())
+```
+```{r}
+cat("FNs train:",
+pred124_train |> filter(predicted == "No",  purchased == "Yes") |> nrow())
+```
+Verify with Naive Bayes function
+```{r}
+m124 <- naiveBayes(
+purchased ~ is_member + product_category + session_duration_min,
+data = train, laplace = 0)
+
+pred_train124 <- predict(m124, train)
+cat("Train accuracy:", round(mean(pred_train124 == train$purchased), 3))
+```
+Calculate accuracy, FP, FN from test data
+```{r}
+pred124_test <- test |>
+left_join(p_x1_y, by = "is_member") |>
+left_join(p_x2_y, by = "product_category") |>
+mutate(
+  p_x4_Y = dnorm(session_duration_min, mu_Y, sigma_Y),
+  p_x4_N = dnorm(session_duration_min, mu_N, sigma_N),
+  f_Y = 0.376 * p_x1_yY * p_x2_yY * p_x4_Y,
+  f_N = 0.624 * p_x1_yN * p_x2_yN * p_x4_N,
+  predicted = if_else(f_Y > f_N, "Yes", "No"))
+
+cat("Test accuracy:",
+round(mean(pred124_test$predicted == test$purchased), 3))
+```
+```{r}
+cat("FPs test:",
+pred124_test |> filter(predicted == "Yes", purchased == "No") |> nrow())
+```
+```{r}
+cat("FNs test:",
+pred124_test |> filter(predicted == "No",  purchased == "Yes") |> nrow())
+```
+Verify w/ Naive Bayes
+```{r}
+pred_test124 <- predict(m124, test)
+cat("Test accuracy:", round(mean(pred_test124 == test$purchased), 3))
+```
