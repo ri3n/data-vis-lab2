@@ -39,7 +39,40 @@ ggplot(gss_cat, aes(y = partyid, fill = marital)) +
   geom_bar(color = "darkblue") +
   gss_cat_labs(fill = "Marital status")
 ```
+```{r}
+ggplot(gss_cat, aes(y = partyid, fill = marital)) +
+  geom_bar(position = "dodge") +
+  gss_cat_labs(fill = "Marital status")
+```
+```{r}
+ggplot(gss_cat, aes(y = partyid)) +
+  geom_bar(aes(fill = marital), position = "dodge") +
+  geom_bar(fill = NA, color = "darkblue") +
+  gss_cat_labs(fill = "Marital status")
+```
+```{r}
+gss_by_partyid <- count(
+  gss_cat, 
+  partyid, 
+  name = "count")
+gss_by_partyid
+```
+```{r}
+ggplot(gss_by_partyid, aes(y = partyid)) +
+  geom_bar(fill = NA, color = "darkblue") +
+  gss_cat_labs()
+```
 
+```{r}
+ggplot(gss_by_partyid, aes(count, partyid)) +
+  geom_col(fill = NA, color = "black") + gss_cat_labs()
+```
+```{r}
+count(gss_cat, partyid, marital, name = "count") |>
+  ggplot(aes(count, partyid, fill = marital)) +
+  geom_col(position = "dodge") +
+  gss_cat_labs(fill = "Marital status")
+```
 ```{r}
 str_c("`volcano` class is: ", class(volcano)[1], 
       ", dimension is: ", dim(volcano)[1], " by ", dim(volcano)[2])

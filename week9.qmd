@@ -1,0 +1,92 @@
+---
+title: "week9"
+format: html
+---
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(tidyverse)
+```
+
+```{r}
+gg_hist_bins <- function(n_bins) {
+  ggplot(iris, aes(x = .data$Sepal.Length)) + # lintr requires .data
+    geom_histogram(bins = n_bins) +
+    labs(
+      x = "Sepal Length (cm)",
+      y = "Count", 
+      title = str_c("Histogram Using ", n_bins, " Bins"),
+      caption = "Source: Anderson (1935)"
+    )
+}
+
+gg_color_hist <- function(n_bins, arg_fill = NA, arg_color = "black") {
+  ggplot(iris, aes(x = .data$Sepal.Length)) +
+    geom_histogram(bins = n_bins, fill = arg_fill, color = arg_color) +
+    labs(
+      x = "Sepal Length (cm)",
+      y = "Count", 
+      title = str_c("Histogram Using ", n_bins, " Bins"),
+      caption = "Source: Anderson (1935)"
+    )
+}
+```
+
+```{r}
+gg_hist_bins(20)
+```
+```{r}
+gg_color_hist(20) +
+  geom_rug() +
+  labs(title = "Histogram with Rug Plot")
+```
+```{r}
+gg_color_hist(20) +
+  geom_rug(
+    aes(y = 0), # we did not specify y in aes() in gg_color_hist()
+    position = position_jitter(height = 0),
+    alpha = 0.5,
+    sides = "lrbt" # "b" for bottom, l = left, r = right, t = top
+  ) +
+  labs(title = "Histogram with Jittered Rug")
+```
+
+```{r}
+ggplot(iris, aes(Sepal.Length)) +
+  geom_density() +
+  geom_rug(
+    aes(y = 0),
+    position = position_jitter(height = 0),
+    alpha = 0.5,
+    sides = "b"
+  ) +
+  labs(title = "Smoothed Estimate (Adjust = 1)")
+```
+```{r}
+# after_stat(density), after_stat(count)
+ggplot(iris, aes(Sepal.Length)) +
+  geom_histogram(aes(y = after_stat(density)), bins = 20, fill = NA, color = "gray25") +
+  geom_density(color = "darkblue", linewidth = 1) +
+  geom_rug(
+    aes(y = 0),
+    position = position_jitter(height = 0),
+    alpha = 0.5,
+    sides = "b" # "b" for bottom
+  ) +
+  labs(title = "Smoothed Estimate (Adjust = 1)")
+```
+```{r}
+ggplot(iris, aes(.data$Sepal.Length, color = Species)) +
+    geom_freqpoly(bins = 20) +
+    geom_rug(aes(y = 0), position = position_jitter(height = 0), alpha = 0.5, sides = "b") +
+    labs(x = "Sepal Length (cm)", y = "Count")
+```
+```{r}
+ggplot(iris, aes(Sepal.Length)) +
+  geom_density() +
+  facet_wrap(vars(Species), ncol = 1) +
+  geom_rug(aes(y = 0), position = position_jitter(height = 0), alpha = 0.5, sides = "b") +
+  geom_vline(aes(xintercept = mean(Sepal.Length)), color = "red", linetype = "dashed") +
+  labs(x = "Sepal Length (cm)", y = "Density")
+```
